@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { AdminLogin } from './AdminLogin';
 import '../styles/components.css';
 
 interface UserData {
@@ -11,13 +12,26 @@ interface UserData {
 }
 
 export const AdminDashboard: React.FC = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [users, setUsers] = useState<UserData[]>([]);
   const [activeUsers, setActiveUsers] = useState<UserData[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<'all' | 'active'>('all');
   const [error, setError] = useState<string | null>(null);
 
+  // Check if already authenticated (from sessionStorage)
   useEffect(() => {
+    const authenticated = sessionStorage.getItem('adminAuthenticated') === 'true';
+    setIsAuthenticated(authenticated);
+    if (!authenticated) {
+      setLoading(false);
+    }
+  }, []);
+
+  // Load users only if authenticated
+  useEffect(() => {
+    if (!isAuthenticated) return;
+
     const loadUsers = async () => {
       setLoading(true);
       setError(null);
@@ -39,7 +53,18 @@ export const AdminDashboard: React.FC = () => {
     };
 
     loadUsers();
-  }, []);
+  }, [isAuthenticated]);
+
+  const handleLogout = () => {
+    sessionStorage.removeItem('adminAuthenticated');
+    setIsAuthenticated(false);
+    setUsers([]);
+    setActiveUsers([]);
+  };
+
+  if (!isAuthenticated) {
+    return <AdminLogin onLoginSuccess={() => setIsAuthenticated(true)} />;
+  }
 
   const displayUsers = filter === 'active' ? activeUsers : users;
 
@@ -57,8 +82,30 @@ export const AdminDashboard: React.FC = () => {
     <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
       {/* Header */}
       <section className="card mb-6">
-        <h1 style={{ marginTop: 0, marginBottom: '0.5rem' }}>👥 Admin Dashboard</h1>
-        <p className="text-secondary">Track user engagement and course participation</p>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+          <div>
+            <h1 style={{ marginTop: 0, marginBottom: '0.5rem' }}>👥 Admin Dashboard</h1>
+            <p className="text-secondary">Track user engagement and course participation</p>
+          </div>
+          <button
+            onClick={handleLogout}
+            style={{
+              padding: '0.5rem 1rem',
+              backgroundColor: 'rgba(255,100,100,0.2)',
+              color: '#c00',
+              border: '1px solid #c00',
+              borderRadius: '0.5rem',
+              cursor: 'pointer',
+              fontSize: '0.9rem',
+              fontWeight: '500',
+              whiteSpace: 'nowrap',
+              flex: 0,
+              marginTop: '0.5rem'
+            }}
+          >
+            🔐 Logout
+          </button>
+        </div>
       </section>
 
       {/* Error Message */}
