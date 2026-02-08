@@ -222,7 +222,7 @@ export const useAppStore = create<AppState>()(
       },
     }),
     {
-      name: 'prayer-course-app-store-v4',
+      name: 'prayer-course-app-store-v5',
     }
   )
 );
