@@ -21,6 +21,24 @@
   --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
+/* Dark Mode */
+html.dark-mode {
+  --primary-color: #1a5fa8;
+  --primary-dark: #0f3d6b;
+  --primary-light: #2b7ec9;
+  --secondary-color: #20B2AA;
+  --success-color: #008B8B;
+  --warning-color: #0A7C7C;
+  --danger-color: #ff6b6b;
+  --background: #0f172a;
+  --surface: #1e293b;
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --border-color: #334155;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',

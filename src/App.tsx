@@ -21,7 +21,16 @@ export function App() {
   const [selectedLesson, setSelectedLesson] = React.useState<LessonSelection | null>(null);
   const [installPrompt, setInstallPrompt] = React.useState<any>(null);
   const [isInstalled, setIsInstalled] = React.useState(false);
-  const { user, setUser } = useAppStore();
+  const { user, setUser, darkMode, setDarkMode } = useAppStore();
+
+  React.useEffect(() => {
+    // Apply dark mode class to html element
+    if (darkMode) {
+      document.documentElement.classList.add('dark-mode');
+    } else {
+      document.documentElement.classList.remove('dark-mode');
+    }
+  }, [darkMode]);
 
   React.useEffect(() => {
     // Initialize user if not already set
@@ -180,6 +189,25 @@ export function App() {
                 📱 Install App
               </button>
             )}
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              style={{
+                padding: '0.5rem 1rem',
+                backgroundColor: 'rgba(255,255,255,0.3)',
+                color: 'white',
+                border: '1px solid rgba(255,255,255,0.5)',
+                borderRadius: '4px',
+                cursor: 'pointer',
+                fontSize: '0.9rem',
+                fontWeight: '500',
+                transition: 'background-color 0.2s'
+              }}
+              onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.4)'}
+              onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.3)'}
+              title="Toggle dark mode"
+            >
+              {darkMode ? '☀️ Light' : '🌙 Dark'}
+            </button>
           </nav>
         </div>
       </header>

@@ -3,6 +3,10 @@ import { persist } from 'zustand/middleware';
 import { UserProgress, Mark, JournalEntry, UserNotes, User } from '../types';
 
 interface AppState {
+  // Theme state
+  darkMode: boolean;
+  setDarkMode: (darkMode: boolean) => void;
+
   // User state
   user: User | null;
   setUser: (user: User) => void;
@@ -32,6 +36,9 @@ interface AppState {
 export const useAppStore = create<AppState>()(
   persist(
     (set, get) => ({
+      darkMode: false,
+      setDarkMode: (darkMode: boolean) => set({ darkMode }),
+
       user: null,
       setUser: (user: User) => set({ user }),
 
