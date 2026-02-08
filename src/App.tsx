@@ -105,31 +105,10 @@ export function App() {
           backgroundImage: 'url(/prayer-banner.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
+          backgroundRepeat: 'no-repeat'
         }}
-      >
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          backgroundColor: 'rgba(0, 0, 0, 0.3)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}>
-          <h1 style={{
-            color: 'white',
-            fontSize: '2rem',
-            textAlign: 'center',
-            margin: 0,
-            textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)'
-          }}>
-            Prayer Ministry
-          </h1>
-        </div>
-      </div>
+      />
+
 
       {/* Navigation Bar */}
       <header style={{ 
