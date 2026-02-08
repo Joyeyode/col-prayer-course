@@ -1,5 +1,71 @@
 import { CourseWeek, Lesson } from '../types';
 
+export const courseIntroduction = {
+  title: "Welcome to Standing in the Gap",
+  subtitle: "A 9-Week Intercessory Prayer Course",
+  content: `Welcome to "Standing in the Gap," a transformative 9-week journey into the heart of intercessory prayer. This course is designed to equip you with biblical understanding, practical tools, and spiritual empowerment to become an effective intercessor for your family, church, community, and nation.
+
+WHAT YOU'LL DISCOVER:
+
+**Week 1: What Is an Intercessor?**
+Understand the biblical definition and role of an intercessor. Learn how you stand between God and man as a representative seeking justice and mercy.
+
+**Week 2: Role and Authority of Intercessor**
+Discover your delegated authority as a believer and the specific roles intercessors play in God's kingdom through priestly and watchman functions.
+
+**Week 3: Called to Intercession**
+Explore the signs that reveal God's specific calling to intercession and how to confirm that He's entrusted you with this sacred responsibility.
+
+**Week 4: Heart for Prayer**
+Develop a heart aligned with God's heart through practices that cultivate prayer, compassion, persistence, and faith.
+
+**Week 5: Purity Before God**
+Understand the importance of spiritual purity as a foundation for your intercession and learn how to maintain a clean heart before the throne of grace.
+
+**Week 6: Carrying the Burden**
+Learn to recognize, embrace, and faithfully carry the specific burdens God gives you to pray through.
+
+**Week 7: The Sacrificial Nature of Intercession**
+Discover what intercession costs and the eternal rewards that far outweigh the temporary sacrifice.
+
+**Week 8: Unity in Prayer**
+Experience the exponential power that comes when believers unite their prayers in corporate intercession.
+
+**Week 9: Operating in Your Intercessory Authority**
+Conclude by understanding and exercising the delegated authority you have in Christ to enforce His will on earth through prayer.
+
+HOW TO USE THIS COURSE:
+
+Each week contains 7 daily lessons (Monday-Sunday) designed for focused, bite-sized learning. Each lesson includes:
+- **Daily Content**: 300-600 words of teaching on that day's topic
+- **Scripture Reference**: Biblical foundation for the day's lesson
+- **Prayer Focus**: A specific prayer direction for that day
+- **Next Steps**: 3-4 practical actions to apply the day's truth
+
+RECOMMENDATIONS:
+
+1. **Be Consistent**: Try to complete one lesson per day. The daily structure is designed to build momentum.
+2. **Journal as You Go**: Use the Journal feature to record what God is teaching you.
+3. **Pray with Others**: Consider inviting prayer partners to join you. God says, "Where two or three gather in my name, there am I with them" (Matthew 18:20).
+4. **Be Patient with Yourself**: Intercession is learned through practice. Some truths will take time to fully grasp.
+5. **Expect Transformation**: As you learn and practice intercession, God will transform you from the inside out.
+
+YOUR CALLING:
+
+God is looking for intercessors. In Ezekiel 22:30, God says: "I looked for someone among them who would build up the wall and stand before me in the gap on behalf of the land so I would not have to destroy it, but I found none."
+
+Will you be the one who stands in the gap?
+
+Will you intercede for those who cannot intercede for themselves?
+
+Will you represent God's heart to man and man's need to God?
+
+This course invites you into that calling. Over the next 9 weeks, you'll discover not just what intercession is, but who you are as an intercessor—and the incredible authority and power God has given you.
+
+Let's begin.`,
+  prayerToStart: `Father, I come before You today acknowledging that I need Your help. Open my heart to receive what You want to teach me about intercession. Give me wisdom to understand, courage to practice, and persistence to continue even when intercession feels difficult. Make me into the intercessor You're calling me to be. In Jesus' name, Amen.`
+};
+
 export const courseContent: CourseWeek[] = [
   {
     weekNumber: 1,

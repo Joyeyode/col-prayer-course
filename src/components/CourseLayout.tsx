@@ -1,5 +1,5 @@
 import React from 'react';
-import { courseContent } from '../data/courseContent';
+import { courseContent, courseIntroduction } from '../data/courseContent';
 import { useAppStore } from '../store/appStore';
 import '../styles/components.css';
 
@@ -11,7 +11,7 @@ export const CourseLayout: React.FC<CourseLayoutProps> = ({ onSelectLesson }) =>
   const { userProgress } = useAppStore();
   const [selectedWeek, setSelectedWeek] = React.useState(1);
 
-  const week = courseContent.find(w => w.weekNumber === selectedWeek);
+  const week = selectedWeek === 0 ? null : courseContent.find(w => w.weekNumber === selectedWeek);
   const completedLessons = userProgress?.completedLessons || [];
 
   const calculateWeekCompletion = (weekNum: number) => {
@@ -29,6 +29,20 @@ export const CourseLayout: React.FC<CourseLayoutProps> = ({ onSelectLesson }) =>
       <aside className="card" style={{ height: 'fit-content', position: 'sticky', top: '1rem' }}>
         <h3 className="mb-4">Course Weeks</h3>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+          <button
+            className={`nav-link ${selectedWeek === 0 ? 'active' : ''}`}
+            onClick={() => setSelectedWeek(0)}
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              textAlign: 'left',
+              backgroundColor: selectedWeek === 0 ? 'var(--primary-color)' : 'transparent',
+              color: selectedWeek === 0 ? 'white' : 'var(--text-primary)',
+            }}
+          >
+            <span>📖 Overview</span>
+          </button>
           {courseContent.map((w) => {
             const completion = calculateWeekCompletion(w.weekNumber);
             const isSelected = selectedWeek === w.weekNumber;
@@ -54,8 +68,39 @@ export const CourseLayout: React.FC<CourseLayoutProps> = ({ onSelectLesson }) =>
         </div>
       </aside>
 
-      {/* Main Content - Week Details */}
+      {/* Main Content - Week Details or Course Introduction */}
       <main>
+        {selectedWeek === 0 && (
+          <div className="card mb-6">
+            <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>{courseIntroduction.title}</h1>
+            <p style={{ fontSize: '1.25rem', color: 'var(--primary-color)', fontWeight: '500', marginBottom: '2rem' }}>
+              {courseIntroduction.subtitle}
+            </p>
+            
+            <div style={{ whiteSpace: 'pre-wrap', lineHeight: 1.8, color: 'var(--text-primary)', marginBottom: '2rem' }}>
+              {courseIntroduction.content}
+            </div>
+
+            <div className="card" style={{ backgroundColor: '#f5f3ff', borderLeft: '4px solid var(--primary-color)', padding: '1.5rem', marginTop: '2rem' }}>
+              <h3 style={{ marginTop: 0 }}>Prayer to Start</h3>
+              <p style={{ fontStyle: 'italic', lineHeight: 1.8 }}>{courseIntroduction.prayerToStart}</p>
+            </div>
+
+            <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem' }}>
+              <button
+                className="btn btn-primary"
+                onClick={() => setSelectedWeek(1)}
+                style={{ fontSize: '1rem', padding: '0.75rem 2rem' }}
+              >
+                Begin Week 1
+              </button>
+              <p style={{ color: 'var(--text-secondary)', alignSelf: 'center' }}>
+                Begin your 9-week journey into intercessory prayer
+              </p>
+            </div>
+          </div>
+        )}
+
         {week && (
           <>
             <div className="card mb-6">
