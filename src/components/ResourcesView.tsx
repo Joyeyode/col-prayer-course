@@ -204,12 +204,12 @@ export const ResourcesView: React.FC = () => {
           </section>
 
           {/* Personality Quiz Feature */}
-          <section className="card mb-6" style={{ backgroundColor: '#ede9fe', borderLeft: '4px solid #9333ea' }}>
+          <section className="card mb-6" style={{ backgroundColor: 'var(--surface)', borderLeft: '4px solid var(--primary-color)' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
               <div>
-                <h2 style={{ color: '#7c3aed', marginTop: 0 }}>🎯 Intercessor Personality Quiz</h2>
+                <h2 style={{ color: 'var(--primary-color)', marginTop: 0 }}>🎯 Intercessor Personality Quiz</h2>
                 <p>Discover your unique intercessor personality type and unlock personalized insights into how you intercede most effectively.</p>
-                <p style={{ fontSize: '0.95rem', color: '#666', marginBottom: 0 }}>
+                <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', marginBottom: 0 }}>
                   Learn about 7 different intercessor types with specific strengths, challenges, and prayer focuses tailored to each type.
                 </p>
               </div>
@@ -217,7 +217,7 @@ export const ResourcesView: React.FC = () => {
                 onClick={() => setShowQuiz(true)}
                 className="btn"
                 style={{
-                  backgroundColor: '#7c3aed',
+                  backgroundColor: 'var(--primary-color)',
                   color: 'white',
                   border: 'none',
                   padding: '0.75rem 1.5rem',
@@ -293,7 +293,7 @@ export const ResourcesView: React.FC = () => {
                     </span>
                   </div>
                   <h3 style={{ margin: '0.5rem 0', color: '#003d7a', fontSize: '1.1rem' }}>{book.title}</h3>
-                  <p style={{ margin: '0.25rem 0', color: '#666', fontStyle: 'italic', fontSize: '0.95rem' }}>
+                  <p style={{ margin: '0.25rem 0', color: 'var(--text-secondary)', fontStyle: 'italic', fontSize: '0.95rem' }}>
                     by {book.author}
                   </p>
                   <p style={{ margin: '1rem 0', lineHeight: '1.6', color: '#555' }}>

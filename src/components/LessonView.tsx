@@ -63,7 +63,7 @@ export const LessonView: React.FC<LessonProps> = ({ weekNumber, dayNumber }) => 
             <span className="badge badge-primary mb-2">{t.week} {weekNumber} • {t.day} {dayNumber}</span>
             <h1>{displayTitle}</h1>
             {week && (
-              <p style={{ color: '#666', marginTop: '0.5rem', fontSize: '0.95rem' }}>
+              <p style={{ color: 'var(--text-secondary)', marginTop: '0.5rem', fontSize: '0.95rem' }}>
                 <strong>{t.weekFocus}:</strong> {week.focusArea}
               </p>
             )}
@@ -151,15 +151,15 @@ export const LessonView: React.FC<LessonProps> = ({ weekNumber, dayNumber }) => 
       </section>
 
       {weekNumber === 3 && !showQuiz && (
-        <section className="card mb-6" style={{ backgroundColor: '#ede9fe', borderLeft: '4px solid #9333ea' }}>
-          <h2 style={{ color: '#7c3aed', marginTop: 0 }}>🎯 Discover Your Intercessor Personality</h2>
+        <section className="card mb-6" style={{ backgroundColor: 'var(--surface)', borderLeft: '4px solid var(--primary-color)' }}>
+          <h2 style={{ color: 'var(--primary-color)', marginTop: 0 }}>🎯 Discover Your Intercessor Personality</h2>
           <p>
             As part of Week 3 - "Called to Intercession," take our personality quiz to discover your unique intercessor type. This will help you understand how God has wired you for intercession and reveal your specific strengths, challenges, and prayer focuses.
           </p>
           <button
             className="btn"
             style={{
-              backgroundColor: '#7c3aed',
+              backgroundColor: 'var(--primary-color)',
               color: 'white',
               border: 'none',
               padding: '0.75rem 1.5rem',

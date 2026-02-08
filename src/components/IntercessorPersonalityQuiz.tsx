@@ -129,7 +129,7 @@ export const IntercessorPersonalityQuiz: React.FC = () => {
 
           {/* Primary Type */}
           {primaryProfile && (
-            <div className="card" style={{ backgroundColor: '#f5f3ff', borderLeft: '4px solid var(--primary-color)', marginBottom: '2rem' }}>
+            <div className="card" style={{ backgroundColor: 'var(--surface)', borderLeft: '4px solid var(--primary-color)', marginBottom: '2rem' }}>
               <h3 style={{ color: 'var(--primary-color)', marginTop: 0 }}>{primaryProfile.name}</h3>
               <p style={{ fontStyle: 'italic', fontSize: '1.1rem', marginBottom: '1rem', color: 'var(--text-primary)' }}>
                 {primaryProfile.title}
@@ -164,7 +164,7 @@ export const IntercessorPersonalityQuiz: React.FC = () => {
                 </div>
               </div>
 
-              <div style={{ backgroundColor: 'white', padding: '1rem', borderRadius: '6px', marginBottom: '1rem' }}>
+              <div style={{ backgroundColor: 'var(--surface)', padding: '1rem', borderRadius: '6px', marginBottom: '1rem' }}>
                 <p style={{ marginTop: 0 }}>
                   <strong>Biblical Example:</strong> {primaryProfile.biblicalExample}
                 </p>
@@ -173,8 +173,8 @@ export const IntercessorPersonalityQuiz: React.FC = () => {
                 </p>
               </div>
 
-              <div className="card" style={{ backgroundColor: '#fffbeb', borderLeft: '4px solid #f59e0b', marginBottom: 0 }}>
-                <h4 style={{ marginTop: 0, color: '#d97706' }}>💡 Advice for Your Intercession</h4>
+              <div className="card" style={{ backgroundColor: 'var(--surface)', borderLeft: '4px solid var(--secondary-color)', marginBottom: 0 }}>
+                <h4 style={{ marginTop: 0, color: 'var(--secondary-color)' }}>💡 Advice for Your Intercession</h4>
                 <p style={{ margin: 0, lineHeight: 1.6 }}>{primaryProfile.advice}</p>
               </div>
             </div>
@@ -182,8 +182,8 @@ export const IntercessorPersonalityQuiz: React.FC = () => {
 
           {/* Secondary Type */}
           {secondaryProfile && results.primary !== results.secondary && (
-            <div className="card" style={{ backgroundColor: '#f9fafb', borderLeft: '4px solid #9333ea', marginBottom: '2rem' }}>
-              <h3 style={{ color: '#9333ea', marginTop: 0 }}>Your Secondary Type: {secondaryProfile.name}</h3>
+            <div className="card" style={{ backgroundColor: 'var(--surface)', borderLeft: '4px solid var(--primary-color)', marginBottom: '2rem' }}>
+              <h3 style={{ color: 'var(--primary-color)', marginTop: 0 }}>Your Secondary Type: {secondaryProfile.name}</h3>
               <p style={{ marginBottom: '1rem', lineHeight: 1.6 }}>{secondaryProfile.description}</p>
               <p style={{ marginBottom: 0, color: 'var(--text-secondary)', fontSize: '0.95rem' }}>
                 <strong>Note:</strong> You likely blend characteristics of your primary and secondary types. Your intercession may shift between these styles depending on the situation and what God is calling you to in that moment.
@@ -199,7 +199,7 @@ export const IntercessorPersonalityQuiz: React.FC = () => {
             <button
               className="btn"
               style={{
-                backgroundColor: copied ? 'var(--success-color)' : '#0891b2',
+                backgroundColor: copied ? 'var(--success-color)' : 'var(--secondary-color)',
                 color: 'white',
                 border: 'none',
                 padding: '0.75rem 1.5rem',
