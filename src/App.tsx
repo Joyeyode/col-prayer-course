@@ -7,7 +7,6 @@ import { LessonView } from './components/LessonView';
 import { JournalView } from './components/JournalView';
 import { ResourcesView } from './components/ResourcesView';
 import { FavoritesView } from './components/FavoritesView';
-import { languages } from './data/i18n';
 import './styles/global.css';
 import './styles/components.css';
 
@@ -23,8 +22,6 @@ export function App() {
   const [selectedLesson, setSelectedLesson] = React.useState<LessonSelection | null>(null);
   const [installPrompt, setInstallPrompt] = React.useState<any>(null);
   const [isInstalled, setIsInstalled] = React.useState(false);
-  const language = useAppStore((state) => state.language);
-  const setLanguage = useAppStore((state) => state.setLanguage);
   const user = useAppStore((state) => state.user);
   const setUser = useAppStore((state) => state.setUser);
   const darkMode = useAppStore((state) => state.darkMode);
@@ -217,26 +214,6 @@ export function App() {
                 📱 Install App
               </button>
             )}
-            <select
-              value={language}
-              onChange={(e) => setLanguage(e.target.value as any)}
-              style={{
-                padding: '0.5rem 0.75rem',
-                backgroundColor: 'rgba(255,255,255,0.3)',
-                color: 'white',
-                border: '1px solid rgba(255,255,255,0.5)',
-                borderRadius: '4px',
-                cursor: 'pointer',
-                fontSize: '0.9rem',
-                fontWeight: '500',
-              }}
-            >
-              {languages.map(lang => (
-                <option key={lang.code} value={lang.code} style={{ color: 'black' }}>
-                  {lang.flag} {lang.name}
-                </option>
-              ))}
-            </select>
             <button
               onClick={() => setDarkMode(!darkMode)}
               style={{
