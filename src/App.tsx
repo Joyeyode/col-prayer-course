@@ -95,24 +95,40 @@ export function App() {
   return (
     <div className="app" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       {/* Prayer Banner */}
-      <div style={{ 
-        position: 'relative',
-        height: '160px',
-        overflow: 'hidden',
-        width: '100%',
-        backgroundColor: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
-      }} className="prayer-banner">
-        <h1 style={{
-          color: 'white',
-          fontSize: '2rem',
-          textAlign: 'center',
-          margin: 0
+      <div 
+        className="prayer-banner"
+        style={{ 
+          position: 'relative',
+          height: '160px',
+          overflow: 'hidden',
+          width: '100%',
+          backgroundImage: 'url(/prayer-banner.png)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
+        }}
+      >
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          backgroundColor: 'rgba(0, 0, 0, 0.3)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
         }}>
-          Prayer Ministry
-        </h1>
+          <h1 style={{
+            color: 'white',
+            fontSize: '2rem',
+            textAlign: 'center',
+            margin: 0,
+            textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)'
+          }}>
+            Prayer Ministry
+          </h1>
+        </div>
       </div>
 
       {/* Navigation Bar */}
