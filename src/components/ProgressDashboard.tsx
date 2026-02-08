@@ -1,9 +1,14 @@
 import React from 'react';
 import { courseContent } from '../data/courseContent';
 import { useAppStore } from '../store/appStore';
+import { getTranslations } from '../data/i18n';
 
 export const ProgressDashboard: React.FC = () => {
-  const { userProgress, currentStreak } = useAppStore();
+  const language = useAppStore((state) => state.language);
+  const userProgress = useAppStore((state) => state.userProgress);
+  const currentStreak = useAppStore((state) => state.currentStreak);
+  const t = getTranslations(language);
+  
   const completedLessons = userProgress?.completedLessons || [];
   const totalLessons = 63;
   const completionPercentage = Math.round((completedLessons.length / totalLessons) * 100);
@@ -20,7 +25,7 @@ export const ProgressDashboard: React.FC = () => {
     for (let i = 1; i <= 9; i++) {
       const weekCompletion = getWeeklyCompletion(i);
       if (weekCompletion === 100) {
-        milestones.push(`Week ${i} Complete!`);
+        milestones.push(t.weekComplete.replace('{week}', i.toString()));
       }
     }
     return milestones;
@@ -32,17 +37,17 @@ export const ProgressDashboard: React.FC = () => {
     <div className="progress-dashboard" style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
       <div className="card">
         <h2 style={{ fontSize: '1.8rem', marginBottom: '1rem', color: 'var(--primary-color)' }}>
-          📊 Your Prayer Journey
+          📊 {t.yourPrayerJourney}
         </h2>
 
         {/* Overall Progress */}
         <div style={{ marginBottom: '2rem' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
             <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', color: 'var(--text-primary)' }}>
-              Overall Progress
+              {t.overallProgress}
             </h3>
             <span style={{ fontSize: '1.1rem', fontWeight: 'bold', color: 'var(--primary-color)' }}>
-              {completedLessons.length} / {totalLessons} Lessons
+              {completedLessons.length} / {totalLessons} {t.lessons}
             </span>
           </div>
           <div style={{
@@ -79,7 +84,7 @@ export const ProgressDashboard: React.FC = () => {
           textAlign: 'center',
         }}>
           <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>
-            🔥 Current Streak
+            🔥 {t.currentStreak}
           </p>
           <p style={{
             fontSize: '3rem',
@@ -90,7 +95,7 @@ export const ProgressDashboard: React.FC = () => {
             {currentStreak}
           </p>
           <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', marginTop: '0.5rem' }}>
-            {currentStreak === 1 ? 'day' : 'days'} of consistent prayer
+            {currentStreak === 1 ? t.dayOfConsistentPrayer : t.daysOfConsistentPrayer}
           </p>
         </div>
 
@@ -98,7 +103,7 @@ export const ProgressDashboard: React.FC = () => {
         {milestones.length > 0 && (
           <div style={{ marginBottom: '2rem' }}>
             <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', color: 'var(--text-primary)', marginBottom: '1rem' }}>
-              🏆 Milestones Achieved
+              🏆 {t.milestonesAchieved}
             </h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               {milestones.map((milestone, idx) => (
@@ -126,7 +131,7 @@ export const ProgressDashboard: React.FC = () => {
         {/* Weekly Breakdown */}
         <div>
           <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', color: 'var(--text-primary)', marginBottom: '1rem' }}>
-            📅 Weekly Progress
+            📅 {t.weeklyProgress}
           </h3>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
             {courseContent.map((week) => {
@@ -143,7 +148,7 @@ export const ProgressDashboard: React.FC = () => {
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
                     <span style={{ fontWeight: 'bold', color: 'var(--text-primary)' }}>
-                      Week {week.weekNumber}
+                      {t.week} {week.weekNumber}
                     </span>
                     <span style={{ fontSize: '0.9rem', color: 'var(--primary-color)', fontWeight: 'bold' }}>
                       {weekCompletion}%

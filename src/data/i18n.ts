@@ -70,6 +70,24 @@ export interface Translations {
   markAsFavorite: string;
   openLesson: string;
 
+  // Dashboard Page
+  welcomeIntercessor: string;
+  continueJourney: string;
+  currentWeek: string;
+  of10Weeks: string;
+  journalEntries: string;
+  reflectionsRecorded: string;
+  quickStats: string;
+  completedLessons: string;
+  courseStatus: string;
+  completedEmoji: string;
+  inProgress: string;
+
+  // Progress Dashboard
+  yourPrayerJourney: string;
+  lessons: string;
+  weekComplete: string;
+
   // Weekly Review
   weeklySummary: string;
   keyScriptures: string;
@@ -146,6 +164,24 @@ const translationsEN: Translations = {
   markAsFavorite: 'Add to favorites',
   openLesson: 'Open Lesson',
 
+  // Dashboard Page
+  welcomeIntercessor: 'Welcome, Intercessor!',
+  continueJourney: 'Continue your journey through the Intercessory Prayer Course',
+  currentWeek: 'Current Week',
+  of10Weeks: 'of 10 weeks',
+  journalEntries: 'Journal Entries',
+  reflectionsRecorded: 'reflections recorded',
+  quickStats: 'Quick Stats',
+  completedLessons: 'Completed Lessons',
+  courseStatus: 'Course Status',
+  completedEmoji: 'Completed! 🎉',
+  inProgress: 'In Progress',
+
+  // Progress Dashboard
+  yourPrayerJourney: 'Your Prayer Journey',
+  lessons: 'Lessons',
+  weekComplete: 'Week {week} Complete!',
+
   // Weekly Review
   weeklySummary: 'Week Summary',
   keyScriptures: 'Key Scriptures',
@@ -218,6 +254,24 @@ const translationsES: Translations = {
   markAsFavorite: 'Añadir a favoritos',
   openLesson: 'Abrir Lección',
 
+  // Dashboard Page
+  welcomeIntercessor: '¡Bienvenido, Intercesor!',
+  continueJourney: 'Continúa tu viaje a través del Curso de Oración de Intercesión',
+  currentWeek: 'Semana Actual',
+  of10Weeks: 'de 10 semanas',
+  journalEntries: 'Entradas de Diario',
+  reflectionsRecorded: 'reflexiones registradas',
+  quickStats: 'Estadísticas Rápidas',
+  completedLessons: 'Lecciones Completadas',
+  courseStatus: 'Estado del Curso',
+  completedEmoji: '¡Completado! 🎉',
+  inProgress: 'En Progreso',
+
+  // Progress Dashboard
+  yourPrayerJourney: 'Tu Viaje de Oración',
+  lessons: 'Lecciones',
+  weekComplete: '¡Semana {week} Completada!',
+
   weeklySummary: 'Resumen Semanal',
   keyScriptures: 'Escrituras Clave',
   weeklyPrayerFocus: 'Enfoque de Oración Semanal',
@@ -287,6 +341,24 @@ const translationsFR: Translations = {
   markAsFavorite: 'Ajouter aux favoris',
   openLesson: 'Ouvrir la Leçon',
 
+  // Dashboard Page
+  welcomeIntercessor: 'Bienvenue, Intercesseur !',
+  continueJourney: 'Continuez votre voyage à travers le Cours de Prière d\'Intercession',
+  currentWeek: 'Semaine Actuelle',
+  of10Weeks: 'sur 10 semaines',
+  journalEntries: 'Entrées de Journal',
+  reflectionsRecorded: 'réflexions enregistrées',
+  quickStats: 'Statistiques Rapides',
+  completedLessons: 'Leçons Complétées',
+  courseStatus: 'État du Cours',
+  completedEmoji: 'Complété ! 🎉',
+  inProgress: 'En Cours',
+
+  // Progress Dashboard
+  yourPrayerJourney: 'Votre Voyage de Prière',
+  lessons: 'Leçons',
+  weekComplete: 'Semaine {week} Complétée !',
+
   weeklySummary: 'Résumé Hebdomadaire',
   keyScriptures: 'Écritures Clés',
   weeklyPrayerFocus: 'Focus de Prière Hebdomadaire',
@@ -355,6 +427,24 @@ const translationsPT: Translations = {
   noFavoritesYet: 'Sem favoritos ainda',
   markAsFavorite: 'Adicionar aos favoritos',
   openLesson: 'Abrir Aula',
+
+  // Dashboard Page
+  welcomeIntercessor: 'Bem-vindo, Intercessor!',
+  continueJourney: 'Continue sua jornada através do Curso de Oração de Intercessão',
+  currentWeek: 'Semana Atual',
+  of10Weeks: 'de 10 semanas',
+  journalEntries: 'Entradas de Diário',
+  reflectionsRecorded: 'reflexões registradas',
+  quickStats: 'Estatísticas Rápidas',
+  completedLessons: 'Aulas Concluídas',
+  courseStatus: 'Status do Curso',
+  completedEmoji: 'Completo! 🎉',
+  inProgress: 'Em Andamento',
+
+  // Progress Dashboard
+  yourPrayerJourney: 'Sua Jornada de Oração',
+  lessons: 'Aulas',
+  weekComplete: 'Semana {week} Concluída!',
 
   weeklySummary: 'Resumo Semanal',
   keyScriptures: 'Escrituras-Chave',
