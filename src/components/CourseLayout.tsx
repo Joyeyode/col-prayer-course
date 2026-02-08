@@ -9,7 +9,8 @@ interface CourseLayoutProps {
 }
 
 export const CourseLayout: React.FC<CourseLayoutProps> = ({ onSelectLesson }) => {
-  const { userProgress, language } = useAppStore();
+  const language = useAppStore((state) => state.language);
+  const userProgress = useAppStore((state) => state.userProgress);
   const [selectedWeek, setSelectedWeek] = React.useState(1);
   const t = getTranslations(language);
 

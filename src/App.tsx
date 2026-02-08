@@ -23,7 +23,12 @@ export function App() {
   const [selectedLesson, setSelectedLesson] = React.useState<LessonSelection | null>(null);
   const [installPrompt, setInstallPrompt] = React.useState<any>(null);
   const [isInstalled, setIsInstalled] = React.useState(false);
-  const { user, setUser, darkMode, setDarkMode, language, setLanguage } = useAppStore();
+  const language = useAppStore((state) => state.language);
+  const setLanguage = useAppStore((state) => state.setLanguage);
+  const user = useAppStore((state) => state.user);
+  const setUser = useAppStore((state) => state.setUser);
+  const darkMode = useAppStore((state) => state.darkMode);
+  const setDarkMode = useAppStore((state) => state.setDarkMode);
 
   React.useEffect(() => {
     // Apply dark mode class to html element

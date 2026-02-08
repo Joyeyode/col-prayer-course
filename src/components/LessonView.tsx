@@ -14,7 +14,13 @@ export const LessonView: React.FC<LessonProps> = ({ weekNumber, dayNumber }) => 
   const week = courseContent.find(w => w.weekNumber === weekNumber);
   const lesson = week?.lessons.find(l => l.dayNumber === dayNumber);
   
-  const { userProgress, markLessonComplete, addNote, getNotesForLesson, toggleFavorite, isFavorited, language } = useAppStore();
+  const language = useAppStore((state) => state.language);
+  const userProgress = useAppStore((state) => state.userProgress);
+  const markLessonComplete = useAppStore((state) => state.markLessonComplete);
+  const addNote = useAppStore((state) => state.addNote);
+  const getNotesForLesson = useAppStore((state) => state.getNotesForLesson);
+  const toggleFavorite = useAppStore((state) => state.toggleFavorite);
+  const isFavorited = useAppStore((state) => state.isFavorited);
   const [showNoteForm, setShowNoteForm] = React.useState(false);
   const [noteContent, setNoteContent] = React.useState('');
   const [showQuiz, setShowQuiz] = React.useState(false);
