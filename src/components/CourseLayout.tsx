@@ -133,16 +133,18 @@ export const CourseLayout: React.FC<CourseLayoutProps> = ({ onSelectLesson }) =>
                     onClick={() => onSelectLesson(week.weekNumber, lesson.dayNumber)}
                     style={{
                       textAlign: 'left',
-                      border: isCompleted ? '2px solid var(--success-color)' : 'none',
-                      backgroundColor: isCompleted ? '#f0fdf4' : 'var(--surface)',
+                      border: isCompleted ? '2px solid var(--success-color)' : '1px solid var(--border-color)',
+                      backgroundColor: 'var(--surface)',
+                      boxShadow: isCompleted ? '0 0 0 1px var(--success-color)' : 'none',
                       cursor: 'pointer',
+                      color: 'var(--text-primary)',
                     }}
                   >
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '0.5rem' }}>
                       <span className="badge badge-primary">Day {lesson.dayNumber}</span>
                       {isCompleted && <span className="badge badge-success">✓</span>}
                     </div>
-                    <h4>{lesson.title}</h4>
+                    <h4 style={{ color: 'var(--text-primary)' }}>{lesson.title}</h4>
                   </button>
                 );
               })}
