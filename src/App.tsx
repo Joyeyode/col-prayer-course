@@ -1,4 +1,6 @@
 import React from 'react';
+import { signOut } from 'firebase/auth';
+import { auth } from './firebase';
 import { useAppStore } from './store/appStore';
 import { Dashboard } from './components/Dashboard';
 import { ProgressDashboard } from './components/ProgressDashboard';
@@ -46,27 +48,6 @@ export function App() {
     }
   }, [darkMode]);
 
-  // Show login screen if user is not authenticated
-  if (!user) {
-    return (
-      <React.Suspense fallback={
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          minHeight: '100vh',
-          backgroundColor: 'var(--background)',
-          color: 'var(--text-primary)',
-          fontSize: '1.2rem',
-        }}>
-          ⏳ Loading authentication...
-        </div>
-      }>
-        <UserAuth onAuthSuccess={(userData) => setUser(userData)} />
-      </React.Suspense>
-    );
-  }
-
   React.useEffect(() => {
     // Handle PWA install prompt
     const handleBeforeInstallPrompt = (e: any) => {
@@ -109,6 +90,27 @@ export function App() {
   const handleBackToCourse = () => {
     setCurrentPage('course');
   };
+
+  // If user is not authenticated, show login screen
+  if (!user) {
+    return (
+      <React.Suspense fallback={
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          minHeight: '100vh',
+          backgroundColor: 'var(--background)',
+          color: 'var(--text-primary)',
+          fontSize: '1.2rem',
+        }}>
+          ⏳ Loading authentication...
+        </div>
+      }>
+        <UserAuth onAuthSuccess={(userData) => setUser(userData)} />
+      </React.Suspense>
+    );
+  }
 
   return (
     <div className="app" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
@@ -232,6 +234,34 @@ export function App() {
               title="Admin Dashboard"
             >
               👥 Admin
+            </button>
+            <button
+              onClick={async () => {
+                try {
+                  await signOut(auth);
+                  setUser(null);
+                  setCurrentPage('dashboard');
+                } catch (error) {
+                  console.error('Sign out error:', error);
+                  setUser(null);
+                }
+              }}
+              style={{
+                padding: '0.5rem 1rem',
+                backgroundColor: 'rgba(255,255,255,0.3)',
+                color: 'white',
+                border: '1px solid rgba(255,255,255,0.5)',
+                borderRadius: '4px',
+                cursor: 'pointer',
+                fontSize: '0.9rem',
+                fontWeight: '500',
+                transition: 'background-color 0.2s'
+              }}
+              onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.4)'}
+              onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.3)'}
+              title="Sign out of your account"
+            >
+              🚪 Sign Out
             </button>
             {installPrompt && !isInstalled && (
               <button
