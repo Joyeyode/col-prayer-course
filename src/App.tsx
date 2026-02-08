@@ -7,10 +7,11 @@ import { LessonView } from './components/LessonView';
 import { JournalView } from './components/JournalView';
 import { ResourcesView } from './components/ResourcesView';
 import { FavoritesView } from './components/FavoritesView';
+import { UserSettingsView } from './components/UserSettingsView';
 import './styles/global.css';
 import './styles/components.css';
 
-type Page = 'dashboard' | 'progress' | 'course' | 'lesson' | 'journal' | 'resources' | 'favorites' | 'review';
+type Page = 'dashboard' | 'progress' | 'course' | 'lesson' | 'journal' | 'resources' | 'favorites' | 'review' | 'settings';
 
 interface LessonSelection {
   weekNumber: number;
@@ -189,6 +190,16 @@ export function App() {
             >
               Resources
             </button>
+            <button
+              onClick={() => setCurrentPage('settings')}
+              className={`nav-link ${currentPage === 'settings' ? 'active' : ''}`}
+              style={{
+                color: currentPage === 'settings' ? 'white' : 'rgba(255,255,255,0.7)',
+                backgroundColor: currentPage === 'settings' ? 'rgba(255,255,255,0.2)' : 'transparent',
+              }}
+            >
+              ⚙️ Settings
+            </button>
             {installPrompt && !isInstalled && (
               <button
                 onClick={handleInstallClick}
@@ -249,6 +260,7 @@ export function App() {
           {currentPage === 'favorites' && <FavoritesView onSelectLesson={handleSelectLesson} />}
           {currentPage === 'journal' && <JournalView />}
           {currentPage === 'resources' && <ResourcesView />}
+          {currentPage === 'settings' && <UserSettingsView />}
         </div>
       </main>
 
