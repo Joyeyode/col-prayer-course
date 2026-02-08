@@ -112,7 +112,7 @@ export function App() {
         <div className="container flex justify-between items-center">
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
             <img 
-              src="/course-logo.png" 
+              src="/COL Logo.png" 
               alt="COL Prayer Course Logo" 
               style={{ height: '50px', width: 'auto', objectFit: 'contain' }}
             />
