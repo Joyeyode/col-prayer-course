@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAppStore } from './store/appStore';
+import { UserAuth } from './components/UserAuth';
 import { Dashboard } from './components/Dashboard';
 import { ProgressDashboard } from './components/ProgressDashboard';
 import { CourseLayout } from './components/CourseLayout';
@@ -42,18 +43,10 @@ export function App() {
     }
   }, [darkMode]);
 
-  React.useEffect(() => {
-    // Initialize user if not already set
-    if (!user) {
-      setUser({
-        id: 'user-1',
-        name: 'Prayer Intercessor',
-        email: 'user@prayercourse.com',
-        joinDate: new Date(),
-        lastActive: new Date(),
-      });
-    }
-  }, [user, setUser]);
+  // Show login screen if user is not authenticated
+  if (!user) {
+    return <UserAuth onAuthSuccess={(userData) => setUser(userData)} />;
+  }
 
   React.useEffect(() => {
     // Handle PWA install prompt

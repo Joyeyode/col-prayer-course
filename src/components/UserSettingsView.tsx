@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAppStore } from '../store/appStore';
 import { getTranslations } from '../data/i18n';
+import { syncUserProfile } from '../services/firebaseService';
 import '../styles/components.css';
 
 export const UserSettingsView: React.FC = () => {
@@ -22,15 +23,26 @@ export const UserSettingsView: React.FC = () => {
   const completionPercentage = getCompletionPercentage();
   const completedLessons = userProgress?.completedLessons.length || 0;
 
-  const handleSaveProfile = () => {
+  const handleSaveProfile = async () => {
     if (user && editName.trim()) {
-      setUser({
+      const updatedUser = {
         ...user,
         name: editName.trim(),
         email: editEmail.trim(),
         lastActive: new Date(),
-      });
-      setSaveMessage('Profile updated successfully!');
+      };
+      
+      setUser(updatedUser);
+      
+      // Sync to Firebase
+      try {
+        await syncUserProfile(updatedUser);
+        setSaveMessage('✅ Profile updated and synced to Firebase!');
+      } catch (err) {
+        setSaveMessage('✅ Profile updated locally (Firebase sync failed - data saved locally)');
+        console.log('Firebase sync skipped:', err);
+      }
+      
       setIsEditing(false);
       setTimeout(() => setSaveMessage(''), 3000);
     }

@@ -116,6 +116,20 @@ export const useAppStore = create<AppState>()(
           // Update last completed date and recalculate streak
           set({ lastCompletedDate: new Date() });
           get().calculateStreak();
+
+          // Log activity to Firebase
+          const logActivity = async () => {
+            try {
+              const { logActivity: firebaseLog } = await import('../services/firebaseService');
+              await firebaseLog(state.user?.id || 'unknown', 'lesson_completed', {
+                lessonId,
+                weekNumber,
+              });
+            } catch (err) {
+              console.log('Firebase logging skipped (not critical):', err);
+            }
+          };
+          logActivity();
           
           return { userProgress: state.userProgress };
         });
@@ -170,6 +184,21 @@ export const useAppStore = create<AppState>()(
         set((state) => ({
           journalEntries: [...state.journalEntries, newEntry],
         }));
+
+        // Log activity to Firebase
+        const logActivity = async () => {
+          try {
+            const state = get();
+            const { logActivity: firebaseLog } = await import('../services/firebaseService');
+            await firebaseLog(state.user?.id || 'unknown', 'journal_entry', {
+              weekNumber: entry.week,
+              entryLength: entry.reflection?.length || 0,
+            });
+          } catch (err) {
+            console.log('Firebase logging skipped (not critical):', err);
+          }
+        };
+        logActivity();
       },
 
       updateJournalEntry: (id: string, entry: Omit<JournalEntry, 'id'>) => {
