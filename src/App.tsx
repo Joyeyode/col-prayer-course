@@ -1,6 +1,5 @@
 import React from 'react';
 import { useAppStore } from './store/appStore';
-import { UserAuth } from './components/UserAuth';
 import { Dashboard } from './components/Dashboard';
 import { ProgressDashboard } from './components/ProgressDashboard';
 import { CourseLayout } from './components/CourseLayout';
@@ -12,7 +11,11 @@ import { UserSettingsView } from './components/UserSettingsView';
 import './styles/global.css';
 import './styles/components.css';
 
-// Lazy load AdminDashboard to prevent Firebase blocking initial load
+// Lazy load components to prevent Firebase blocking initial load
+const UserAuth = React.lazy(() => 
+  import('./components/UserAuth').then(m => ({ default: m.UserAuth }))
+);
+
 const AdminDashboard = React.lazy(() => 
   import('./components/AdminDashboard').then(m => ({ default: m.AdminDashboard }))
 );
@@ -45,7 +48,23 @@ export function App() {
 
   // Show login screen if user is not authenticated
   if (!user) {
-    return <UserAuth onAuthSuccess={(userData) => setUser(userData)} />;
+    return (
+      <React.Suspense fallback={
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          minHeight: '100vh',
+          backgroundColor: 'var(--background)',
+          color: 'var(--text-primary)',
+          fontSize: '1.2rem',
+        }}>
+          ⏳ Loading authentication...
+        </div>
+      }>
+        <UserAuth onAuthSuccess={(userData) => setUser(userData)} />
+      </React.Suspense>
+    );
   }
 
   React.useEffect(() => {
