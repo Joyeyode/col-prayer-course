@@ -10,6 +10,7 @@ export const UserSettingsView: React.FC = () => {
   const userProgress = useAppStore((state) => state.userProgress);
   const getCompletionPercentage = useAppStore((state) => state.getCompletionPercentage);
   const journalEntries = useAppStore((state) => state.journalEntries);
+  const userNotes = useAppStore((state) => state.userNotes);
   const currentStreak = useAppStore((state) => state.currentStreak);
   
   const [isEditing, setIsEditing] = useState(false);
@@ -44,6 +45,37 @@ export const UserSettingsView: React.FC = () => {
   const enrollmentDate = user?.joinDate 
     ? new Date(user.joinDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
     : 'N/A';
+
+  const handleExportData = () => {
+    const allData = {
+      exportDate: new Date().toISOString(),
+      user: {
+        id: user?.id,
+        name: user?.name,
+        email: user?.email,
+        joinDate: user?.joinDate,
+        lastActive: user?.lastActive,
+      },
+      progress: {
+        userProgress,
+        completionPercentage,
+        currentStreak,
+      },
+      journalEntries,
+      userNotes,
+    };
+
+    const dataStr = JSON.stringify(allData, null, 2);
+    const dataBlob = new Blob([dataStr], { type: 'application/json' });
+    const url = URL.createObjectURL(dataBlob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `prayer-course-export-${new Date().toISOString().split('T')[0]}.json`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
 
   return (
     <div style={{ maxWidth: '800px', margin: '0 auto' }}>
@@ -175,6 +207,46 @@ export const UserSettingsView: React.FC = () => {
             <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', margin: '0.5rem 0 0 0' }}>reflections recorded</p>
           </div>
         </div>
+      </section>
+
+      {/* Quick Tips */}
+      <section className="card mb-6">
+        <h2 style={{ marginTop: 0, marginBottom: '1rem' }}>📋 Your Data</h2>
+        <p className="text-secondary" style={{ marginBottom: '1.5rem' }}>Access and download all your personal information and course data</p>
+        
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
+          <div style={{ padding: '1rem', backgroundColor: 'var(--surface)', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+            <p style={{ color: 'var(--text-secondary)', marginBottom: '0.5rem', fontSize: '0.9rem' }}>📧 Email</p>
+            <p style={{ margin: 0, fontWeight: '500' }}>{user?.email}</p>
+          </div>
+          <div style={{ padding: '1rem', backgroundColor: 'var(--surface)', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+            <p style={{ color: 'var(--text-secondary)', marginBottom: '0.5rem', fontSize: '0.9rem' }}>🆔 User ID</p>
+            <p style={{ margin: 0, fontWeight: '500', fontSize: '0.9rem', fontFamily: 'monospace' }}>{user?.id}</p>
+          </div>
+          <div style={{ padding: '1rem', backgroundColor: 'var(--surface)', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+            <p style={{ color: 'var(--text-secondary)', marginBottom: '0.5rem', fontSize: '0.9rem' }}>📚 Total Notes</p>
+            <p style={{ margin: 0, fontWeight: '500' }}>{userNotes.length} notes</p>
+          </div>
+          <div style={{ padding: '1rem', backgroundColor: 'var(--surface)', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+            <p style={{ color: 'var(--text-secondary)', marginBottom: '0.5rem', fontSize: '0.9rem' }}>📝 Journal Entries</p>
+            <p style={{ margin: 0, fontWeight: '500' }}>{journalEntries.length} entries</p>
+          </div>
+        </div>
+
+        <div style={{ padding: '1rem', backgroundColor: 'var(--surface)', borderRadius: '8px', border: '1px solid var(--border-color)', marginBottom: '1.5rem' }}>
+          <h3 style={{ marginTop: 0, marginBottom: '0.5rem' }}>🔐 Data Privacy</h3>
+          <p style={{ margin: 0, fontSize: '0.95rem', color: 'var(--text-secondary)' }}>
+            All your data is stored locally in your browser. Click the button below to download a complete backup of everything.
+          </p>
+        </div>
+
+        <button 
+          className="btn btn-primary"
+          onClick={handleExportData}
+          style={{ width: '100%' }}
+        >
+          📥 Download My Data (JSON)
+        </button>
       </section>
 
       {/* Quick Tips */}

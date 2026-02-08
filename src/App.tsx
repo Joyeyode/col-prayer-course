@@ -121,13 +121,18 @@ export function App() {
         zIndex: 100
       }}>
         <div className="container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <img 
-              src="/COL Logo.png" 
-              alt="COL Prayer Course Logo" 
-              style={{ height: '50px', width: 'auto', objectFit: 'contain' }}
-            />
-            <h1 style={{ fontSize: '1.5rem', margin: 0, fontWeight: 'bold' }}>COL Prayer Course</h1>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', width: '100%', justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flex: 1, justifyContent: 'center' }}>
+              <img 
+                src="/COL Logo.png" 
+                alt="COL Prayer Course Logo" 
+                style={{ height: '50px', width: 'auto', objectFit: 'contain' }}
+              />
+              <div>
+                <h1 style={{ fontSize: '1.5rem', margin: 0, fontWeight: 'bold' }}>COL Prayer Course</h1>
+                <p style={{ fontSize: '0.85rem', margin: '0.25rem 0 0 0', opacity: 0.9 }}>👤 {user?.name || 'Guest'}</p>
+              </div>
+            </div>
           </div>
           <nav style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
             <button
