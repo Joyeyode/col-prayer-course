@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAppStore } from '../store/appStore';
 import { courseContent } from '../data/courseContent';
+import { IntercessorPersonalityQuiz } from './IntercessorPersonalityQuiz';
 import '../styles/components.css';
 
 interface LessonProps {
@@ -15,6 +16,7 @@ export const LessonView: React.FC<LessonProps> = ({ weekNumber, dayNumber }) => 
   const { userProgress, markLessonComplete, addNote, getNotesForLesson } = useAppStore();
   const [showNoteForm, setShowNoteForm] = React.useState(false);
   const [noteContent, setNoteContent] = React.useState('');
+  const [showQuiz, setShowQuiz] = React.useState(false);
   
   if (!lesson) return <div>Lesson not found</div>;
 
@@ -92,6 +94,37 @@ export const LessonView: React.FC<LessonProps> = ({ weekNumber, dayNumber }) => 
           )}
         </div>
       </section>
+
+      {weekNumber === 3 && !showQuiz && (
+        <section className="card mb-6" style={{ backgroundColor: '#ede9fe', borderLeft: '4px solid #9333ea' }}>
+          <h2 style={{ color: '#7c3aed', marginTop: 0 }}>🎯 Discover Your Intercessor Personality</h2>
+          <p>
+            As part of Week 3 - "Called to Intercession," take our personality quiz to discover your unique intercessor type. This will help you understand how God has wired you for intercession and reveal your specific strengths, challenges, and prayer focuses.
+          </p>
+          <button
+            className="btn"
+            style={{
+              backgroundColor: '#7c3aed',
+              color: 'white',
+              border: 'none',
+              padding: '0.75rem 1.5rem',
+              fontSize: '1rem'
+            }}
+            onClick={() => setShowQuiz(true)}
+          >
+            Take the Quiz →
+          </button>
+        </section>
+      )}
+
+      {weekNumber === 3 && showQuiz && (
+        <>
+          <button className="btn btn-secondary mb-4" onClick={() => setShowQuiz(false)}>
+            ← Back to Lesson
+          </button>
+          <IntercessorPersonalityQuiz />
+        </>
+      )}
 
       <section className="card">
         <div className="flex justify-between items-center mb-4">

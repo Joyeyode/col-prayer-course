@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { IntercessorPersonalityQuiz } from './IntercessorPersonalityQuiz';
 import '../styles/components.css';
 
 interface Book {
@@ -158,6 +159,7 @@ const categories = [
 
 export const ResourcesView: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = React.useState<string | null>(null);
+  const [showQuiz, setShowQuiz] = useState(false);
 
   const filteredBooks = selectedCategory
     ? books.filter(book => book.category === selectedCategory)
@@ -179,103 +181,145 @@ export const ResourcesView: React.FC = () => {
 
   return (
     <div className="resources-container">
-      <section className="card mb-6">
-        <h1>📚 Recommended Reading</h1>
-        <p className="text-secondary mt-2">
-          "The prayer of a righteous person is powerful and effective." - James 5:16b
-        </p>
-        <p style={{ marginTop: '1rem', fontSize: '0.95rem', color: '#666' }}>
-          Curated resources to deepen your intercessory prayer ministry. Explore by category or view all recommended books.
-        </p>
-      </section>
-
-      <section className="card mb-6">
-        <h2 className="mb-4">Categories</h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '0.75rem' }}>
+      {showQuiz ? (
+        <>
           <button
-            onClick={() => setSelectedCategory(null)}
-            style={{
-              padding: '0.75rem 1rem',
-              backgroundColor: !selectedCategory ? 'var(--primary-color)' : '#f0f4f8',
-              color: !selectedCategory ? 'white' : '#003d7a',
-              border: 'none',
-              borderRadius: '6px',
-              cursor: 'pointer',
-              fontWeight: '500',
-              fontSize: '0.95rem'
-            }}
+            onClick={() => setShowQuiz(false)}
+            className="btn btn-secondary mb-4"
           >
-            📚 All Books ({books.length})
+            ← Back to Resources
           </button>
-          {categories.map(category => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              style={{
-                padding: '0.75rem 1rem',
-                backgroundColor: selectedCategory === category ? 'var(--primary-color)' : '#f0f4f8',
-                color: selectedCategory === category ? 'white' : '#003d7a',
-                border: 'none',
-                borderRadius: '6px',
-                cursor: 'pointer',
-                fontWeight: '500',
-                fontSize: '0.95rem'
-              }}
-            >
-              {getEmojiForCategory(category)} {category.split(' ').slice(0, 2).join(' ')}
-            </button>
-          ))}
-        </div>
-      </section>
+          <IntercessorPersonalityQuiz />
+        </>
+      ) : (
+        <>
+          <section className="card mb-6">
+            <h1>📚 Resources & Tools</h1>
+            <p className="text-secondary mt-2">
+              "The prayer of a righteous person is powerful and effective." - James 5:16b
+            </p>
+            <p style={{ marginTop: '1rem', fontSize: '0.95rem', color: '#666' }}>
+              Explore tools, recommended books, and resources to deepen your intercessory prayer ministry.
+            </p>
+          </section>
 
-      <section>
-        <h2 className="mb-4">
-          {selectedCategory ? `${getEmojiForCategory(selectedCategory)} ${selectedCategory}` : '📚 All Recommended Books'}
-        </h2>
-        <div style={{ display: 'grid', gap: '1rem' }}>
-          {filteredBooks.map((book, index) => (
-            <div
-              key={index}
-              className="card"
-              style={{
-                borderLeft: '4px solid #20B2AA',
-                backgroundColor: '#f9fafb'
-              }}
-            >
-              <div style={{ marginBottom: '0.75rem' }}>
-                <span className="badge badge-primary" style={{ marginRight: '0.5rem' }}>
-                  {getEmojiForCategory(book.category)}
-                </span>
-                <span className="badge" style={{ backgroundColor: '#dce9f5', color: '#003d7a' }}>
-                  {book.category}
-                </span>
+          {/* Personality Quiz Feature */}
+          <section className="card mb-6" style={{ backgroundColor: '#ede9fe', borderLeft: '4px solid #9333ea' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
+              <div>
+                <h2 style={{ color: '#7c3aed', marginTop: 0 }}>🎯 Intercessor Personality Quiz</h2>
+                <p>Discover your unique intercessor personality type and unlock personalized insights into how you intercede most effectively.</p>
+                <p style={{ fontSize: '0.95rem', color: '#666', marginBottom: 0 }}>
+                  Learn about 7 different intercessor types with specific strengths, challenges, and prayer focuses tailored to each type.
+                </p>
               </div>
-              <h3 style={{ margin: '0.5rem 0', color: '#003d7a', fontSize: '1.1rem' }}>{book.title}</h3>
-              <p style={{ margin: '0.25rem 0', color: '#666', fontStyle: 'italic', fontSize: '0.95rem' }}>
-                by {book.author}
-              </p>
-              <p style={{ margin: '1rem 0', lineHeight: '1.6', color: '#555' }}>
-                {book.description}
-              </p>
+              <button
+                onClick={() => setShowQuiz(true)}
+                className="btn"
+                style={{
+                  backgroundColor: '#7c3aed',
+                  color: 'white',
+                  border: 'none',
+                  padding: '0.75rem 1.5rem',
+                  fontSize: '1rem',
+                  whiteSpace: 'nowrap',
+                  marginLeft: '1rem'
+                }}
+              >
+                Take Quiz →
+              </button>
             </div>
-          ))}
-        </div>
-      </section>
+          </section>
 
-      <section className="card mt-6" style={{ backgroundColor: '#e8f2fa', borderLeft: '4px solid #20B2AA' }}>
-        <h3 style={{ color: '#003d7a', marginTop: 0 }}>💡 Getting Started</h3>
-        <p style={{ marginBottom: '0.5rem' }}>
-          <strong>Start with these three:</strong>
-        </p>
-        <ul style={{ marginLeft: '1.5rem', lineHeight: '1.8' }}>
-          <li><strong>Intercessory Prayer</strong> by Dutch Sheets - Comprehensive foundation</li>
-          <li><strong>Rees Howells: Intercessor</strong> by Norman Grubb - Inspiration</li>
-          <li><strong>Secrets of the Secret Place</strong> by Bob Sorge - Intimacy</li>
-        </ul>
-        <p style={{ marginTop: '1rem', fontSize: '0.95rem', color: '#666' }}>
-          💭 <strong>Tip:</strong> Keep a journal to record insights, prayers, and testimonies of answered prayer. This becomes a valuable resource for your ongoing intercessory ministry.
-        </p>
-      </section>
+          <section className="card mb-6">
+            <h2 className="mb-4">📖 Recommended Reading</h2>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '0.75rem' }}>
+              <button
+                onClick={() => setSelectedCategory(null)}
+                style={{
+                  padding: '0.75rem 1rem',
+                  backgroundColor: !selectedCategory ? 'var(--primary-color)' : '#f0f4f8',
+                  color: !selectedCategory ? 'white' : '#003d7a',
+                  border: 'none',
+                  borderRadius: '6px',
+                  cursor: 'pointer',
+                  fontWeight: '500',
+                  fontSize: '0.95rem'
+                }}
+              >
+                📚 All Books ({books.length})
+              </button>
+              {categories.map(category => (
+                <button
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
+                  style={{
+                    padding: '0.75rem 1rem',
+                    backgroundColor: selectedCategory === category ? 'var(--primary-color)' : '#f0f4f8',
+                    color: selectedCategory === category ? 'white' : '#003d7a',
+                    border: 'none',
+                    borderRadius: '6px',
+                    cursor: 'pointer',
+                    fontWeight: '500',
+                    fontSize: '0.95rem'
+                  }}
+                >
+                  {getEmojiForCategory(category)} {category.split(' ').slice(0, 2).join(' ')}
+                </button>
+              ))}
+            </div>
+          </section>
+
+          <section>
+            <h2 className="mb-4">
+              {selectedCategory ? `${getEmojiForCategory(selectedCategory)} ${selectedCategory}` : '📚 All Recommended Books'}
+            </h2>
+            <div style={{ display: 'grid', gap: '1rem' }}>
+              {filteredBooks.map((book, index) => (
+                <div
+                  key={index}
+                  className="card"
+                  style={{
+                    borderLeft: '4px solid #20B2AA',
+                    backgroundColor: '#f9fafb'
+                  }}
+                >
+                  <div style={{ marginBottom: '0.75rem' }}>
+                    <span className="badge badge-primary" style={{ marginRight: '0.5rem' }}>
+                      {getEmojiForCategory(book.category)}
+                    </span>
+                    <span className="badge" style={{ backgroundColor: '#dce9f5', color: '#003d7a' }}>
+                      {book.category}
+                    </span>
+                  </div>
+                  <h3 style={{ margin: '0.5rem 0', color: '#003d7a', fontSize: '1.1rem' }}>{book.title}</h3>
+                  <p style={{ margin: '0.25rem 0', color: '#666', fontStyle: 'italic', fontSize: '0.95rem' }}>
+                    by {book.author}
+                  </p>
+                  <p style={{ margin: '1rem 0', lineHeight: '1.6', color: '#555' }}>
+                    {book.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="card mt-6" style={{ backgroundColor: '#e8f2fa', borderLeft: '4px solid #20B2AA' }}>
+            <h3 style={{ color: '#003d7a', marginTop: 0 }}>💡 Getting Started</h3>
+            <p style={{ marginBottom: '0.5rem' }}>
+              <strong>Start with these three:</strong>
+            </p>
+            <ul style={{ marginLeft: '1.5rem', lineHeight: '1.8' }}>
+              <li><strong>Intercessory Prayer</strong> by Dutch Sheets - Comprehensive foundation</li>
+              <li><strong>Rees Howells: Intercessor</strong> by Norman Grubb - Inspiration</li>
+              <li><strong>Secrets of the Secret Place</strong> by Bob Sorge - Intimacy</li>
+            </ul>
+            <p style={{ marginTop: '1rem', fontSize: '0.95rem', color: '#666' }}>
+              💭 <strong>Tip:</strong> Keep a journal to record insights, prayers, and testimonies of answered prayer. This becomes a valuable resource for your ongoing intercessory ministry.
+            </p>
+          </section>
+        </>
+      )}
     </div>
   );
 };
