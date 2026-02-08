@@ -8,11 +8,10 @@ import { JournalView } from './components/JournalView';
 import { ResourcesView } from './components/ResourcesView';
 import { FavoritesView } from './components/FavoritesView';
 import { UserSettingsView } from './components/UserSettingsView';
-import { AdminDashboard } from './components/AdminDashboard';
 import './styles/global.css';
 import './styles/components.css';
 
-type Page = 'dashboard' | 'progress' | 'course' | 'lesson' | 'journal' | 'resources' | 'favorites' | 'review' | 'settings' | 'admin';
+type Page = 'dashboard' | 'progress' | 'course' | 'lesson' | 'journal' | 'resources' | 'favorites' | 'review' | 'settings';
 
 interface LessonSelection {
   weekNumber: number;
@@ -206,17 +205,6 @@ export function App() {
             >
               ⚙️ Settings
             </button>
-            <button
-              onClick={() => setCurrentPage('admin')}
-              className={`nav-link ${currentPage === 'admin' ? 'active' : ''}`}
-              style={{
-                color: currentPage === 'admin' ? 'white' : 'rgba(255,255,255,0.7)',
-                backgroundColor: currentPage === 'admin' ? 'rgba(255,255,255,0.2)' : 'transparent',
-              }}
-              title="Admin Dashboard"
-            >
-              👥 Admin
-            </button>
             {installPrompt && !isInstalled && (
               <button
                 onClick={handleInstallClick}
@@ -278,7 +266,6 @@ export function App() {
           {currentPage === 'journal' && <JournalView />}
           {currentPage === 'resources' && <ResourcesView />}
           {currentPage === 'settings' && <UserSettingsView />}
-          {currentPage === 'admin' && <AdminDashboard />}
         </div>
       </main>
 
