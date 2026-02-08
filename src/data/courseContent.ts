@@ -3,701 +3,747 @@ import { CourseWeek, Lesson } from '../types';
 export const courseContent: CourseWeek[] = [
   {
     weekNumber: 1,
-    title: "Foundation of Intercession",
-    description: "Learn the biblical basis and importance of intercessory prayer",
-    focusArea: "Understanding Your Role as an Intercessor",
+    title: "What Is an Intercessor?",
+    description: "Understand the core definition and role of an intercessor in God's kingdom",
+    focusArea: "Standing Between God and Man",
     lessons: [
       {
         id: "week1-day1",
         dayNumber: 1,
-        title: "What is Intercessory Prayer?",
-        content: "Intercessory prayer is standing in the gap for others before God. It's the act of going to God on behalf of another person or situation. This foundational lesson explores biblical examples of intercessors and their impact.",
-        scriptureReference: "Ezekiel 22:30, 1 Timothy 2:1-2",
-        prayerFocus: "Pray for God to give you a heart for intercession",
-        nextSteps: ["Identify 3 people to pray for daily", "Study examples of intercessors in scripture"]
-      },
-      {
-        id: "week1-day2",
-        dayNumber: 2,
-        title: "The Power of Agreement",
-        content: "When believers come into agreement in prayer, there is supernatural power released. Jesus taught about the principle of agreement in prayer and its connection to answered prayers.",
-        scriptureReference: "Matthew 18:19-20",
-        prayerFocus: "Pray for unity among believers and intercessors",
-        nextSteps: ["Find a prayer partner", "Practice praying together for a specific request"]
-      },
-      {
-        id: "week1-day3",
-        dayNumber: 3,
-        title: "Intercession in the Old Testament",
-        content: "Examine Old Testament intercessors like Abraham, Moses, Samuel, and Job. Their prayers changed historical outcomes and demonstrated the power of standing in the gap.",
-        scriptureReference: "Genesis 18:23-32, Exodus 32:11-14, 1 Samuel 7:5-12",
-        prayerFocus: "Ask God to increase your faith in the power of prayer",
-        nextSteps: ["Study one Old Testament intercessor in depth", "Write down what you learned"]
-      },
-      {
-        id: "week1-day4",
-        dayNumber: 4,
-        title: "Jesus as Our Intercessor",
-        content: "Jesus Christ is our greatest example of an intercessor. He lives to intercede for us at the right hand of the Father, and He calls us to join Him in this ministry.",
-        scriptureReference: "Romans 8:34, Hebrews 7:25, John 17",
-        prayerFocus: "Thank Jesus for His intercession on your behalf",
-        nextSteps: ["Read Jesus' prayer in John 17", "Meditate on His intercessory prayer"]
-      },
-      {
-        id: "week1-day5",
-        dayNumber: 5,
-        title: "Intercession in the New Testament",
-        content: "The New Testament emphasizes the primacy of intercession. Paul interceded for churches and leaders regularly. Discover how early believers practiced intercessory prayer.",
-        scriptureReference: "Ephesians 1:16-19, Philippians 1:9-11, Colossians 1:9-12",
-        prayerFocus: "Pray for spiritual growth in your church and community",
-        nextSteps: ["Identify a leader or ministry to intercede for", "Commit to 30 days of prayer"]
-      },
-      {
-        id: "week1-day6",
-        dayNumber: 6,
-        title: "Your Authority as an Intercessor",
-        content: "As a believer, you have authority in prayer. This authority comes from your position in Christ and is based on His redemptive work. Learn how to exercise this authority wisely.",
-        scriptureReference: "Matthew 18:18-19, James 4:2-3",
-        prayerFocus: "Pray with confidence in the authority Christ has given you",
-        nextSteps: ["Review your prayer authority scriptures", "Practice praying with authority"]
-      },
-      {
-        id: "week1-day7",
-        dayNumber: 7,
-        title: "Week One Review & Reflection",
-        content: "This day is dedicated to reviewing what you've learned about intercession and its biblical foundation. Reflect on your commitment to become an intercessor.",
-        prayerFocus: "Ask God to deepen your understanding of intercession",
-        nextSteps: ["Journal your reflections", "Share insights with a prayer partner"]
+        title: "What Is an Intercessor?",
+        content: `An intercessor is one who stands between God and man, representing others before the throne of grace—much like a courtroom attorney represents their client before a judge.
+
+The Intercessor Is:
+• A representative who stands in the gap for another
+• One who pleads on behalf of others
+• A mediator demanding justice, especially for the underdog
+• A spiritual attorney in God's courtroom
+
+BIBLICAL EXAMPLES:
+Abraham interceding for Sodom and Gomorrah (Genesis 18) - Abraham negotiated with God, pleading for the righteous in those cities.
+
+Peter's deliverance through intercession (Acts 12:1-12) - The church prayed without ceasing for Peter, and God released him from prison.
+
+Jonathan standing for David (1 Samuel 19:1-7) - Jonathan interceded with Saul on David's behalf, preventing his death.
+
+Bathsheba interceding for Solomon (1 Kings 1:15-31) - Bathsheba stood before King David to secure Solomon's throne.
+
+These examples show that intercessors are not passive observers—they actively engage with God and others to bring about God's purposes and justice on earth.`,
+        scriptureReference: "James 5:17, Acts 12:1-12",
+        prayerFocus: "Begin asking God to reveal who He wants you to intercede for",
+        nextSteps: [
+          "Begin keeping a prayer journal listing people who come to mind during your prayer time",
+          "Read and meditate on one of the biblical examples provided",
+          "Identify three people or situations you sense God bringing to your heart"
+        ]
       }
     ]
   },
   {
     weekNumber: 2,
-    title: "Preparing Your Heart for Intercession",
-    description: "Develop spiritual discipline and heart preparation for effective prayer",
-    focusArea: "Spiritual Prerequisites for Intercession",
+    title: "The Role and Authority of an Intercessor",
+    description: "Discover your position as a priest and watchman in God's kingdom",
+    focusArea: "Priesthood and Watchman Ministry",
     lessons: [
       {
         id: "week2-day1",
         dayNumber: 1,
-        title: "Repentance and Forgiveness",
-        content: "A heart prepared for intercession begins with repentance and forgiveness. Unforgiveness blocks prayers and hinders spiritual growth.",
-        scriptureReference: "Psalm 66:18, Matthew 6:14-15",
-        prayerFocus: "Search your heart for unforgiveness and ask God to help you forgive",
-        nextSteps: ["List anyone you need to forgive", "Take steps toward reconciliation"]
-      },
-      {
-        id: "week2-day2",
-        dayNumber: 2,
-        title: "Humility in Prayer",
-        content: "Effective intercession requires humility. Pride hinders prayer, while humility opens the ears of God. Learn to approach the throne with proper reverence and humility.",
-        scriptureReference: "James 4:6, Proverbs 3:34",
-        prayerFocus: "Pray for humility and removal of spiritual pride",
-        nextSteps: ["Examine where pride may hinder your prayers", "Practice praying with a humble heart"]
-      },
-      {
-        id: "week2-day3",
-        dayNumber: 3,
-        title: "Fasting and Prayer",
-        content: "Fasting intensifies intercession by removing physical distractions and strengthening spiritual focus. Explore biblical fasting practices and their benefits.",
-        scriptureReference: "Matthew 6:16-18, Acts 13:2-3, Daniel 9:3",
-        prayerFocus: "Seek God's guidance about if and how to fast",
-        nextSteps: ["Consider a short fast", "Read about biblical fasting"]
-      },
-      {
-        id: "week2-day4",
-        dayNumber: 4,
-        title: "Holiness and Separated Living",
-        content: "God calls intercessors to holiness. This means separating yourself from worldly pursuits and maintaining spiritual purity as you prepare to stand before God's throne.",
-        scriptureReference: "1 Peter 1:15-16, Psalm 24:3-4",
-        prayerFocus: "Ask God to help you live a holy life",
-        nextSteps: ["Identify areas needing sanctification", "Commit to specific changes"]
-      },
-      {
-        id: "week2-day5",
-        dayNumber: 5,
-        title: "Faith as a Foundation",
-        content: "Without faith, it's impossible to please God. Faith is essential for intercession. Learn how to build and strengthen your faith for prayer.",
-        scriptureReference: "Hebrews 11:6, Romans 10:17",
-        prayerFocus: "Pray for an increase in faith and belief",
-        nextSteps: ["Study biblical examples of faith", "Recall God's faithfulness in your life"]
-      },
-      {
-        id: "week2-day6",
-        dayNumber: 6,
-        title: "Surrender and Submission",
-        content: "True intercession requires surrendering your will to God's will. Learn to align your prayers with God's purposes rather than your own agenda.",
-        scriptureReference: "Matthew 6:10, Luke 22:42",
-        prayerFocus: "Pray for complete surrender to God's will",
-        nextSteps: ["Identify areas where you need greater submission", "Practice praying God's way"]
-      },
-      {
-        id: "week2-day7",
-        dayNumber: 7,
-        title: "Week Two Review & Reflection",
-        content: "Reflect on how you can better prepare your heart for intercession. Consider the spiritual disciplines you're developing.",
-        prayerFocus: "Thank God for working in your heart",
-        nextSteps: ["Journal your progress", "Identify your strongest areas and challenges"]
+        title: "The Role and Authority of an Intercessor",
+        content: `UNDERSTANDING YOUR POSITION:
+Just as Jesus is our High Priest making continual intercession, you operate as a priest before God on behalf of others. Your role mirrors that of a lawyer:
+• Standing before the Judge (God) - You approach the throne of grace with confidence
+• Presenting evidence (God's promises) - You use Scripture and God's covenant promises
+• Believing for justice and breakthrough - You declare God's will and stand in faith
+• Representing those who cannot represent themselves - You speak on behalf of the vulnerable and voiceless
+
+THE INTERCESSOR AS WATCHMAN:
+Scripture references: Jeremiah 51:12; 2 Kings 9:17; Isaiah 21:5-12; Ezekiel 33:3-6
+
+Like a watchman guarding a city, you:
+• Watch over families, cities, regions, and the body of Christ
+• Sound the alarm when danger approaches (spiritually discerning threats)
+• Protect through prayer what God has entrusted to your care
+• Stand in faith and authority to prevent spiritual harm
+
+THE WATCHMAN'S RESPONSIBILITY:
+The watchman is positioned at the gate to see what's coming, understand the times, and warn others. As a spiritual watchman through intercession, you:
+1. Maintain spiritual vigilance
+2. Discern spiritual threats and victories
+3. Alert others to pray when needed
+4. Intercede for protection of what God values
+
+SYNONYMS FOR YOUR MINISTRY:
+Arbitrator, negotiator, peacemaker, go-between, middleman, intermediary, moderator, intervenor, liaison officer
+
+Each of these titles reflects the vital bridge-building and mediating function of an intercessor.`,
+        scriptureReference: "Hebrews 5:6, Hebrews 7:25, Jeremiah 51:12, Isaiah 21:5-12",
+        prayerFocus: "Ask God to awaken the watchman/priest anointing in your life",
+        nextSteps: [
+          "Identify one area (family, workplace, church, community) where God is calling you to be a watchman this week",
+          "Study the watchman scriptures and journal what God reveals",
+          "Begin praying as a watchman over that area daily"
+        ]
       }
     ]
   },
   {
     weekNumber: 3,
-    title: "Types of Prayer and Intercession",
-    description: "Understand different prayer types and intercession methods",
-    focusArea: "Developing Your Prayer Arsenal",
+    title: "Called to Intercession",
+    description: "Recognize the signs of your call to intercessory prayer ministry",
+    focusArea: "Confirmation of Your Calling",
     lessons: [
       {
         id: "week3-day1",
         dayNumber: 1,
-        title: "Supplication and Petition",
-        content: "Supplication is earnest and humble prayer for a specific need. It involves laying your requests before God with faith and expectation. Learn to distinguish between demands and humble petitions before the throne of grace.",
-        scriptureReference: "Philippians 4:6-7, 1 Peter 5:7",
-        prayerFocus: "Present your specific prayer requests to God with confidence",
-        nextSteps: ["Write down 5 specific petitions", "Thank God in advance for answers"]
-      },
-      {
-        id: "week3-day2",
-        dayNumber: 2,
-        title: "Intercession vs. Petition",
-        content: "While petition focuses on your own needs, intercession focuses on others' needs. Understand the balance between praying for yourself and standing in the gap for others. True intercessors develop selflessness in prayer.",
-        scriptureReference: "1 John 5:16, James 5:16",
-        prayerFocus: "Pray for the needs of others as earnestly as your own",
-        nextSteps: ["Create an intercession prayer list", "Pray for each person daily"]
-      },
-      {
-        id: "week3-day3",
-        dayNumber: 3,
-        title: "Praise and Thanksgiving in Intercession",
-        content: "Praise and thanksgiving are powerful weapons in intercession. When you praise God while praying, you remind yourself of His power, goodness, and faithfulness. This strengthens your faith for breakthrough.",
-        scriptureReference: "Philippians 4:4-5, Psalm 100",
-        prayerFocus: "Praise God for His character while interceding",
-        nextSteps: ["List God's attributes", "Incorporate praise into your prayers"]
-      },
-      {
-        id: "week3-day4",
-        dayNumber: 4,
-        title: "Binding and Loosing in Prayer",
-        content: "Jesus gave us authority to bind and loose in prayer. Binding refers to restricting the enemy's activity; loosing refers to releasing God's blessing. Learn to exercise spiritual authority through informed, biblical prayer.",
-        scriptureReference: "Matthew 16:19, Matthew 18:18",
-        prayerFocus: "Pray with authority against spiritual opposition",
-        nextSteps: ["Study spiritual authority scriptures", "Practice binding and loosing in prayer"]
-      },
-      {
-        id: "week3-day5",
-        dayNumber: 5,
-        title: "Travailing Prayer",
-        content: "Travailing prayer is deep, intense intercession that births spiritual results. Like labor pains, it involves groaning and wrestling in prayer until breakthrough comes. This is the prayer of those with deep compassion for others.",
-        scriptureReference: "Romans 8:26-27, Galatians 4:19",
-        prayerFocus: "Allow the Holy Spirit to pray through you with intensity",
-        nextSteps: ["Read about intercessors who travailed", "Experience this type of prayer"]
-      },
-      {
-        id: "week3-day6",
-        dayNumber: 6,
-        title: "Corporate vs. Personal Intercession",
-        content: "There is power in both personal intercession and praying with others. Corporate prayer releases a corporate anointing. Balance your private prayer time with prayer partnerships and group intercessory meetings.",
-        scriptureReference: "Acts 1:14, Acts 2:1-4",
-        prayerFocus: "Experience both private and corporate prayer this week",
-        nextSteps: ["Find or start a prayer group", "Attend a corporate prayer meeting"]
-      },
-      {
-        id: "week3-day7",
-        dayNumber: 7,
-        title: "Week Three Review",
-        content: "Reflect on the different types of prayer and intercession you've learned. Consider how each type can be applied in your personal intercession. What new prayer methods will you add to your prayer life?",
-        prayerFocus: "Thank God for teaching you diverse prayer methods",
-        nextSteps: ["Journal your insights", "Plan how to incorporate new prayer types"]
+        title: "Called to Intercession",
+        content: `WHY INTERCESSORS ARE NEEDED:
+• Someone must reason with God on behalf of others - God seeks advocates for His people
+• You are the front line of spiritual defense - Prayer warfare protects others
+• The enemy must go through you before achieving his plans - Your intercession is a spiritual barrier
+• God seeks those who will watch over His people - He specifically calls and anoints intercessors
+
+THE CALL TO INTERCESSION:
+God is actively seeking people to stand in the gap. History would be different if someone had prayed. Cities would be saved if someone had interceded. Families would be transformed if someone had stood in prayer. That someone is you.
+
+SIGNS YOU'RE CALLED TO INTERCESSION:
+1. Your heart breaks when people are unjustly accused or treated unfairly
+   - You feel deep compassion for the wronged and vulnerable
+   - Injustice moves you to prayer and action
+
+2. You naturally support the underdog
+   - Your heart identifies with those who are overlooked or oppressed
+   - You advocate for outsiders and those without a voice
+
+3. People's names or faces pop into your mind unexpectedly
+   - The Holy Spirit brings them to remembrance for prayer
+   - You sense their need or situation in your spirit
+
+4. You sense you can change situations through prayer
+   - You believe that prayer has real power
+   - You see spiritual breakthroughs as you pray
+
+5. You discern when things are out of order or feel spiritual heaviness
+   - You sense the spiritual atmosphere
+   - You perceive what others miss spiritually
+
+6. You have an unusual burden for prayer
+   - Prayer feels like a necessary compulsion
+   - You find yourself naturally drawn to prayer
+
+CONFIRMATION PRINCIPLE:
+THE MORE I PRAY, THE MORE I WANT TO PRAY
+THE LESS I PRAY, THE LESS I WANT TO PRAY
+
+This principle reveals that intercession is both a calling and a habit. As you respond to God's call and engage in intercession, your desire and capacity increase. Your yes to prayer opens the floodgates for more prayer.`,
+        scriptureReference: "Isaiah 59:1-16, Ezekiel 22:30",
+        prayerFocus: "Ask God to confirm your calling to intercession and strengthen your prayer life",
+        nextSteps: [
+          "Reflect on the signs above. Journal about which ones resonate with your experience",
+          "Ask God for confirmation of your intercessory calling",
+          "Commit to one specific prayer practice this week"
+        ]
       }
     ]
   },
   {
     weekNumber: 4,
-    title: "Strategic Intercession",
-    description: "Learn strategic approaches to intercession that bring spiritual breakthroughs",
-    focusArea: "Discernment and Strategic Prayer",
+    title: "The Heart for Prayer",
+    description: "Develop the qualities of an effective intercessor's heart",
+    focusArea: "Building Your Prayer Lifestyle",
     lessons: [
       {
         id: "week4-day1",
         dayNumber: 1,
-        title: "Discernment in Intercession",
-        content: "Effective intercession requires discernment—the ability to perceive spiritual realities beyond the natural. Develop sensitivity to the Holy Spirit's promptings to know what and how to pray in specific situations.",
-        scriptureReference: "1 Corinthians 12:10, 1 John 4:1",
-        prayerFocus: "Ask the Holy Spirit for greater discernment",
-        nextSteps: ["Develop a journaling practice for spiritual insights", "Test what you perceive by scripture"]
-      },
-      {
-        id: "week4-day2",
-        dayNumber: 2,
-        title: "Praying the Word of God",
-        content: "The most powerful prayers are prayed scriptures. When you pray God's Word, you pray His will with certainty. His Word never returns void. Learn to incorporate scriptures into your intercession.",
-        scriptureReference: "Isaiah 55:11, Hebrews 4:12",
-        prayerFocus: "Pray specific scriptures over people and situations",
-        nextSteps: ["Select 3 scriptures for your intercession", "Pray them daily this week"]
-      },
-      {
-        id: "week4-day3",
-        dayNumber: 3,
-        title: "Targeted Intercession",
-        content: "Rather than scattered prayers, develop focused intercession. Identify specific needs, groups, or areas that the Holy Spirit burdens you to pray for. Consistent, targeted prayer produces consistent results.",
-        scriptureReference: "Colossians 4:12, Romans 10:1",
-        prayerFocus: "Select specific targets for this week's intercession",
-        nextSteps: ["Create a focused prayer list", "Pray strategically for one area"]
-      },
-      {
-        id: "week4-day4",
-        dayNumber: 4,
-        title: "Spiritual Mapping and Prayer",
-        content: "Understanding spiritual strongholds in your city or region helps focus intercession. Identify the spiritual climate, history, and enemy strongholds, then pray strategically to see God's kingdom advance.",
-        scriptureReference: "Ephesians 3:14-19, 2 Corinthians 10:3-5",
-        prayerFocus: "Pray for breakthrough in your city's spiritual climate",
-        nextSteps: ["Research your city's spiritual history", "Identify strongholds to pray against"]
-      },
-      {
-        id: "week4-day5",
-        dayNumber: 5,
-        title: "Persistence and Tenacity in Prayer",
-        content: "Jesus taught that persistent prayer is powerful. The parable of the persistent widow shows that God honors those who keep asking, seeking, and knocking. Don't give up on your prayers prematurely.",
-        scriptureReference: "Luke 18:1-8, Matthew 7:7-8",
-        prayerFocus: "Commit to persistent prayer for a specific breakthrough",
-        nextSteps: ["Identify something worth persistent prayer", "Commit to pray for 30 days"]
-      },
-      {
-        id: "week4-day6",
-        dayNumber: 6,
-        title: "Watching and Prayer",
-        content: "Jesus emphasized being watchful in prayer. This means staying alert to spiritual realities, being aware of signs of the times, and praying appropriately. Watching prayer keeps you spiritually awake.",
-        scriptureReference: "Matthew 26:41, 1 Peter 4:7",
-        prayerFocus: "Remain watchful and spiritually alert in prayer",
-        nextSteps: ["Set specific prayer times", "Develop watchfulness practices"]
-      },
-      {
-        id: "week4-day7",
-        dayNumber: 7,
-        title: "Week Four Review",
-        content: "Review the strategic approaches to intercession. Which methods resonated most with you? How has your prayer life shifted this week? What breakthrough are you expecting?",
-        prayerFocus: "Thank God for teaching you strategic intercession",
-        nextSteps: ["Review your week", "Plan strategic prayers ahead"]
+        title: "The Heart for Prayer",
+        content: `DEVELOPING YOUR PRAYER LIFE:
+God searches for those who will stand in the gap. An intercessor doesn't just pray occasionally—prayer becomes their lifestyle and primary weapon.
+
+CHARACTERISTICS OF AN INTERCESSOR'S HEART:
+1. Longing to see God's justice done on behalf of others
+   - You burn for righteousness
+   - God's heart for justice becomes your heart's cry
+
+2. Persistence in prayer (like the widow with the unjust judge - Luke 18:1-8)
+   - You don't give up after one prayer
+   - You press through until breakthrough comes
+
+3. Compassion that drives you to your knees
+   - Deep care for others' welfare
+   - Empathy and tenderness in your intercession
+
+4. Faith that God hears and answers
+   - Confidence in God's goodness
+   - Belief that your prayers matter and have results
+
+BIBLICAL EXAMPLES OF PRAYER WARRIORS:
+ELIJAH (James 5:17):
+"Elijah was a human being, even as we are. He prayed earnestly that it would not rain, and it did not rain on the land for three and a half years. Again he prayed, and the heavens gave rain..."
+Elijah's prayers produced measurable results and changed history.
+
+DANIEL (Daniel 9):
+Daniel prayed with fasting and deep intercession for his nation. His prayers triggered heavenly response and angelic visitation.
+
+ANNA THE PROPHETESS (Luke 2:36-38):
+"Anna, a prophetess, the daughter of Phanuel, of the tribe of Asher. She was of a great age, and had lived with a husband seven years from her virginity; and this woman was a widow of about fourscore and four years, which departed not from the temple, but served God with fastings and prayers night and day. And she coming in that instant gave thanks likewise unto the Lord, and spake of him to all them that looked for redemption in Jerusalem."
+Anna maintained consistent prayer and was among the first to recognize the Messiah.
+
+PRACTICAL APPLICATION:
+Establish a consistent prayer time. Start with 15 minutes daily and increase as your capacity grows.
+
+Use this time to:
+• Pray for those God brings to mind
+• Pray Scripture over situations
+• Listen for God's direction
+
+Remember: This is not about perfection. Start where you are. Begin with 15 minutes and let God develop your prayer life naturally.`,
+        scriptureReference: "Ezekiel 22:30, Isaiah 62:6-7, James 5:17",
+        prayerFocus: "Commit to developing a consistent daily prayer time",
+        nextSteps: [
+          "Commit to a daily prayer time this week. Set a specific time and place to meet with God",
+          "Start with 15 minutes; increase as you feel capacity growing",
+          "Keep a simple prayer journal of people and situations you intercede for"
+        ]
       }
     ]
   },
   {
     weekNumber: 5,
-    title: "Interceding for Leaders and Nations",
-    description: "Expand your intercession to include leaders, governments, and nations",
-    focusArea: "Kingdom Impact Through Prayer",
+    title: "Purity Before God",
+    description: "Understand how purity amplifies your spiritual authority",
+    focusArea: "Clean Hands, Pure Heart",
     lessons: [
       {
         id: "week5-day1",
         dayNumber: 1,
-        title: "Intercession for Government Leaders",
-        content: "Paul instructed believers to pray for those in authority. When we intercede for leaders, we're cooperating with God to establish His kingdom on earth. Prayers for leaders have tremendous ripple effects throughout nations.",
-        scriptureReference: "1 Timothy 2:1-4, Psalm 122:6-9",
-        prayerFocus: "Pray for wisdom and righteousness in national leaders",
-        nextSteps: ["Make a list of government leaders to pray for", "Pray for them daily"]
-      },
-      {
-        id: "week5-day2",
-        dayNumber: 2,
-        title: "Intercession for Spiritual Leaders",
-        content: "Pastors, prophets, and spiritual leaders face unique spiritual opposition. They need the prayers of the flock they shepherd. Your intercession for leaders strengthens their ministry and protects them spiritually.",
-        scriptureReference: "Ephesians 6:18-20, Colossians 1:9-12",
-        prayerFocus: "Intercede powerfully for your spiritual leaders",
-        nextSteps: ["Name your spiritual leaders", "Commit to pray for their success"]
-      },
-      {
-        id: "week5-day3",
-        dayNumber: 3,
-        title: "Strategic Intercession for Nations",
-        content: "Nations can be transformed through intercession. Prophets and intercessors have long understood that the spiritual realm precedes the natural. Praying for entire nations opens doors for God's purposes to be fulfilled.",
-        scriptureReference: "Jeremiah 29:7, 1 Kings 8:23-53",
-        prayerFocus: "Intercede for revival and God's purposes in nations",
-        nextSteps: ["Select a nation to focus on", "Research and pray appropriately"]
-      },
-      {
-        id: "week5-day4",
-        dayNumber: 4,
-        title: "Praying Against Darkness and Injustice",
-        content: "Intercessors are called to pray against darkness, corruption, and injustice. This includes praying against policies that contradict God's values and spiritual forces that oppress nations. Intercession is a weapon of righteousness.",
-        scriptureReference: "Ephesians 6:12, Isaiah 59:16-17",
-        prayerFocus: "Pray against injustice and spiritual darkness",
-        nextSteps: ["Identify injustices to pray against", "Intercede for God's justice"]
-      },
-      {
-        id: "week5-day5",
-        dayNumber: 5,
-        title: "Praying for Missions and Evangelism",
-        content: "The Great Commission requires intercession. Misrepresented by Satan, frontline missionaries and evangelists desperately need prayer support. Your intercession opens spiritual doors for the gospel to advance.",
-        scriptureReference: "Matthew 9:37-38, Colossians 1:3-5",
-        prayerFocus: "Intercede for missionaries and evangelists globally",
-        nextSteps: ["Support specific missionaries in prayer", "Pray for open doors to the gospel"]
-      },
-      {
-        id: "week5-day6",
-        dayNumber: 6,
-        title: "Reconciliation Through Prayer",
-        content: "Prayer builds bridges between divided groups. Intercessors can pray for reconciliation between nations, ethnic groups, and people groups. This prophetic intercession demonstrates God's love and desire for unity.",
-        scriptureReference: "2 Corinthians 5:17-21, Ephesians 2:14-16",
-        prayerFocus: "Pray for reconciliation and unity where there's division",
-        nextSteps: ["Identify divisions to pray for", "Intercede for peace-making"]
-      },
-      {
-        id: "week5-day7",
-        dayNumber: 7,
-        title: "Week Five Review",
-        content: "Reflect on how intercession for leaders and nations has expanded your prayer burden. Feel the weight of responsibility and the privilege of influencing kingdoms through prayer.",
-        prayerFocus: "Rejoice in your role as a kingdom intercessor",
-        nextSteps: ["Journal your expanded vision", "Plan your future intercession"]
+        title: "Purity Before God",
+        content: `THE POWER OF CLEAN HANDS AND A PURE HEART:
+"Who may ascend the mountain of the LORD? Who may stand in his holy place? The one who has clean hands and a pure heart, who does not trust in an idol or swear by a false god." - Psalm 24:3-4
+
+WHY PURITY MATTERS:
+1. Unconfessed sin hinders prayers (Psalm 66:18)
+   - "If I had cherished sin in my heart, the Lord would not have listened"
+   - Sin breaks your connection with God
+
+2. Effective intercession requires a clear connection with God
+   - Your prayers must flow from a clean conscience
+   - Unresolved sin mutes your voice before the throne
+
+3. Your authority in prayer flows from your relationship with God
+   - Purity increases your boldness
+   - A clean heart gives confidence before God
+
+4. Purity amplifies your spiritual authority
+   - You speak with greater power when you are living in alignment with God
+   - The enemy has no accusation against you
+
+MAINTAINING PURITY:
+
+1. REGULAR SELF-EXAMINATION
+   • Ask the Holy Spirit to search your heart daily
+   • "Search me, O God, and know my heart" (Psalm 139:23)
+   • Confess sin quickly (1 John 1:9)
+   • "If we confess our sins, he is faithful and just to forgive us our sins, and to cleanse us from all unrighteousness"
+   • Make things right with others when needed (Matthew 5:23-24)
+
+2. GUARD YOUR HEART
+   • Monitor what you watch, read, and listen to
+   • "Above all else, guard your heart, for everything you do flows from it" (Proverbs 4:23)
+   • Protect your thought life from compromise
+   • Maintain healthy boundaries in relationships and media
+
+3. LIVE IN REPENTANCE
+   • View repentance as a lifestyle, not a one-time event
+   • Continuously turn from sin; continuously turn toward God
+   • Stay humble and teachable
+   • Be quick to admit wrong
+   • Submit to correction
+
+BIBLICAL EXAMPLE - EZRA'S REPENTANCE:
+Ezra 10:1 describes Ezra's passionate repentance and prayer for his nation. His prayer of repentance led to national transformation and restoration. This demonstrates how a leader's purity and intercession can bring change.
+
+The principle: One person's commitment to purity and prayer can shift the spiritual climate of an entire community.
+
+YOUR AUTHORITY DEPENDS ON YOUR PURITY:
+As you maintain purity, God grants you greater authority in prayer. You can pray with boldness, declare with power, and intercede with confidence. Your intercession becomes a force the enemy must reckon with.`,
+        scriptureReference: "Psalm 24:3-4, Psalm 66:18, Ezra 10:1",
+        prayerFocus: "Ask God to create in you a clean heart; confess any known sin",
+        nextSteps: [
+          "Spend time in honest self-examination. Ask God to reveal any areas that need cleansing",
+          "Confess and receive His forgiveness",
+          "Identify one area of your life where you need to guard your heart more carefully"
+        ]
       }
     ]
   },
   {
     weekNumber: 6,
-    title: "Breakthrough Prayer and Spiritual Warfare",
-    description: "Learn how to pray for breakthrough and engage in spiritual warfare effectively",
-    focusArea: "Breaking Through Spiritual Barriers",
+    title: "Carrying the Burden",
+    description: "Learn to recognize and carry God-given burdens for intercession",
+    focusArea: "Divine Assignment and Persistence",
     lessons: [
       {
         id: "week6-day1",
         dayNumber: 1,
-        title: "Understanding Spiritual Warfare",
-        content: "Intercession is spiritual warfare. We battle not against flesh and blood but against spiritual forces. Understanding the nature of spiritual warfare helps you pray with proper weapons and authority.",
-        scriptureReference: "Ephesians 6:12, 2 Corinthians 10:3-5",
-        prayerFocus: "Recognize the spiritual realm and pray from spiritual understanding",
-        nextSteps: ["Study spiritual armor", "Understand your authority in prayer"]
-      },
-      {
-        id: "week6-day2",
-        dayNumber: 2,
-        title: "Breaking Through Resistance",
-        content: "Sometimes prayers seem blocked or delayed. This can indicate spiritual resistance or strongholds. Learn to identify and overcome spiritual resistance through persistent, strategic, and authoritative prayer.",
-        scriptureReference: "Daniel 10:12-13, Luke 11:5-13",
-        prayerFocus: "Pray through resistance with faith and persistence",
-        nextSteps: ["Identify resistant situations", "Pray with renewed determination"]
-      },
-      {
-        id: "week6-day3",
-        dayNumber: 3,
-        title: "Dealing with Generational Curses",
-        content: "Some situations involve generational patterns or curses. Intercessors can break generational curses through prayer, repentance, and authoritative declaration of Christ's power over families and bloodlines.",
-        scriptureReference: "Exodus 20:5-6, Deuteronomy 5:9-10, Galatians 3:13",
-        prayerFocus: "Break generational patterns through prayer and repentance",
-        nextSteps: ["Identify generational issues", "Intercede for generational healing"]
-      },
-      {
-        id: "week6-day4",
-        dayNumber: 4,
-        title: "Confronting Strongholds",
-        content: "Strongholds are established patterns of deception, sin, or demonic influence. Only prayer can dislodge them. Learn to identify and pray against strongholds with the truth of God's Word.",
-        scriptureReference: "2 Corinthians 10:4-5, Proverbs 27:12",
-        prayerFocus: "Confront strongholds with God's truth in prayer",
-        nextSteps: ["Identify strongholds to pray against", "Use God's Word against them"]
-      },
-      {
-        id: "week6-day5",
-        dayNumber: 5,
-        title: "The Role of Fasting in Breakthrough",
-        content: "Fasting intensifies intercession and breaks through spiritual resistance. When combined with prayer, fasting demonstrates desperation and faith. Some breakthroughs require the combination of prayer and fasting.",
-        scriptureReference: "Matthew 17:21, Daniel 9:3, Acts 13:2-3",
-        prayerFocus: "Consider fasting to accelerate breakthrough",
-        nextSteps: ["Identify a situation for prayer and fasting", "Complete a fast if led"]
-      },
-      {
-        id: "week6-day6",
-        dayNumber: 6,
-        title: "Rejoicing Before the Victory",
-        content: "Praise and thanksgiving in the midst of battle declare victory before it manifests naturally. This kind of faith-filled rejoicing advances God's kingdom and confuses the enemy.",
-        scriptureReference: "2 Chronicles 20:22, Psalm 42:11",
-        prayerFocus: "Praise God for breakthrough before you see it",
-        nextSteps: ["Praise for expected victories", "Maintain faith-filled expectation"]
-      },
-      {
-        id: "week6-day7",
-        dayNumber: 7,
-        title: "Week Six Review",
-        content: "Reflect on breakthroughs you've experienced through prayer. Celebrate God's victories and prepare for greater battles ahead. Your intercession changes the spiritual landscape.",
-        prayerFocus: "Celebrate breakthroughs and anticipate greater victories",
-        nextSteps: ["Document answered prayers", "Plan for greater intercession"]
+        title: "Carrying the Burden",
+        content: `UNDERSTANDING THE BURDEN:
+A burden in intercession is a God-given weight or concern for a person, situation, or region that drives you to prayer. It's not anxiety—it's a divine assignment.
+
+THE DIFFERENCE:
+GOD'S BURDEN: Comes with faith, leads to prayer, brings peace when you obey, increases your burden-bearing capacity
+HUMAN WORRY: Comes with fear, leads to despair, brings stress, diminishes your peace
+
+CHARACTERISTICS OF A HOLY BURDEN:
+• Comes from God, not your own worry or anxiety
+  - The Holy Spirit imparts it; your natural fear doesn't
+  - It has a spiritual weight different from mere concern
+
+• Persists until breakthrough comes
+  - It doesn't fade away naturally
+  - Something will feel incomplete until you've prayed through it
+
+• Drives you to prayer rather than despair
+  - Your response is to seek God
+  - You have faith that prayer will change things
+
+• Brings focus and direction to your intercession
+  - You know exactly what to pray for
+  - The burden clarifies God's will in intercession
+
+HOW TO CARRY THE BURDEN:
+
+1. RECOGNIZE IT
+   • Discern between God's burden and personal worry
+   • Ask: "Is this driving me to prayer or to fear?"
+   • God's burdens lead to prayer; worry leads to fear and despair
+
+2. EMBRACE IT
+   • Don't run from what God shows you
+   • Accept God's assignment with gratitude
+   • See it as a privilege to intercede for something God cares about
+
+3. PRAY THROUGH IT
+   • Continue praying until you sense release or breakthrough
+   • Pray with Scripture and prophetic declarations
+   • Fast when appropriate (setting aside food to intensify intercession)
+   • Press through resistance and opposition
+
+4. SHARE THE BURDEN
+   • Unite with other intercessors when needed
+   • "Two or three in agreement bring power" (Matthew 18:19-20)
+   • Corporate intercession multiplies the effect
+
+BIBLICAL EXAMPLES:
+
+NEHEMIAH (Nehemiah 1:4):
+When Nehemiah heard about the destruction of Jerusalem's walls, he was so burdened that he fasted and prayed for days. This burden led to restoration of the entire city.
+
+PAUL (Romans 9:2-3):
+"I have great sorrow and unceasing anguish in my heart. For I could wish that I myself were cursed and cut off from Christ for the sake of my people, those of Abraham's descent."
+Paul's burden for Israel's salvation was so deep he was willing to sacrifice himself.
+
+ESTHER (Esther 4:16):
+When learning of the plot to destroy her people, Esther fasted and prayed, then took bold action. Her courage came from her burden for her people.
+
+THE FRUIT OF CARRYING BURDENS:
+When you faithfully carry the burdens God gives you, you become a change-agent in:
+• Your family's spiritual legacy
+• Your church's spiritual climate
+• Your city's destiny
+• The kingdom of God
+
+Your intercession matters. The burden you carry today shapes tomorrow's victory.`,
+        scriptureReference: "Galatians 6:2, Nehemiah 1:4, Romans 9:2-3, Matthew 18:19-20",
+        prayerFocus: "Ask God if there's a specific burden He wants you to carry",
+        nextSteps: [
+          "Ask God if there's a specific burden He wants you to carry",
+          "Write it down and commit to praying until you sense breakthrough or release",
+          "Consider fasting as you intercede for this burden"
+        ]
       }
     ]
   },
   {
     weekNumber: 7,
-    title: "Special Seasons and Situations in Prayer",
-    description: "Pray effectively during different seasons and specific life situations",
-    focusArea: "Intercession for Every Season",
+    title: "The Sacrificial Nature of Intercession",
+    description: "Understand what intercession costs and the rewards it brings",
+    focusArea: "The Price and Prize of Prayer",
     lessons: [
       {
         id: "week7-day1",
         dayNumber: 1,
-        title: "Prayer During Crisis",
-        content: "Crises reveal the true nature of faith and prayer. During unexpected disasters or emergencies, intercessors become anchors of faith. Learn to pray during crisis with wisdom and spiritual authority.",
-        scriptureReference: "Philippians 4:6-7, Psalm 27:10",
-        prayerFocus: "Maintain faith and intercede effectively during crisis",
-        nextSteps: ["Develop crisis prayer protocols", "Create emergency prayer teams"]
-      },
-      {
-        id: "week7-day2",
-        dayNumber: 2,
-        title: "Interceding During Darkness and Doubt",
-        content: "Intercessors often face seasons of darkness and doubt. These trials develop spiritual maturity and depth. Learn to intercede faithfully even when you don't see results or feel God's presence.",
-        scriptureReference: "Habakkuk 3:17-18, Romans 4:18-20",
-        prayerFocus: "Pray with faith even in seasons of darkness",
-        nextSteps: ["Strengthen your faith foundation", "Find others to pray with"]
-      },
-      {
-        id: "week7-day3",
-        dayNumber: 3,
-        title: "Prayer for Healing and Restoration",
-        content: "Sickness and brokenness call for compassionate intercession. Learn to pray for physical healing, emotional restoration, and spiritual wholeness. God wants us whole—spirit, soul, and body.",
-        scriptureReference: "James 5:14-16, 3 John 2",
-        prayerFocus: "Intercede for healing and complete restoration",
-        nextSteps: ["Identify people to pray for healing", "Learn healing scriptures"]
-      },
-      {
-        id: "week7-day4",
-        dayNumber: 4,
-        title: "Intercession for the Lost and Backslidden",
-        content: "The burden for lost souls and those who've turned away compels intercessors. Pray with the heart of God for those outside the kingdom and those who've strayed from faith.",
-        scriptureReference: "Luke 15:1-7, 2 Peter 3:9",
-        prayerFocus: "Intercede with God's heart for the lost",
-        nextSteps: ["Identify lost or backslidden people to pray for", "Intercede regularly for them"]
-      },
-      {
-        id: "week7-day5",
-        dayNumber: 5,
-        title: "Prayer During Seasons of Transition",
-        content: "Major life transitions—job changes, relocations, loss, new beginnings—require intentional prayer. Intercession during transition helps navigate changes with God's guidance and protection.",
-        scriptureReference: "Proverbs 3:5-6, Psalm 25:4-5",
-        prayerFocus: "Seek God's guidance during life transitions",
-        nextSteps: ["Identify transitions and pray through them", "Trust God's direction"]
-      },
-      {
-        id: "week7-day6",
-        dayNumber: 6,
-        title: "Intercession During Persecution and Hardship",
-        content: "When believers face persecution or hardship, intercessors provide spiritual support. Your prayers can sustain saints through difficulty and even move God to show Himself mighty on their behalf.",
-        scriptureReference: "1 Peter 1:3-7, Revelation 6:9-11",
-        prayerFocus: "Intercede for persecuted believers globally",
-        nextSteps: ["Research persecuted communities", "Commit to regular intercession"]
-      },
-      {
-        id: "week7-day7",
-        dayNumber: 7,
-        title: "Week Seven Review",
-        content: "Reflect on different seasons and situations where intercession has been needed. Consider your capacity to pray through any condition and maintain faith in God's ultimate victory.",
-        prayerFocus: "Trust God in every season of intercession",
-        nextSteps: ["Review your journey", "Plan for seasons ahead"]
+        title: "The Sacrificial Nature of Intercession",
+        content: `UNDERSTANDING SACRIFICIAL INTERCESSION:
+Intercession requires sacrifice—of your time, comfort, sleep, and personal preferences. Like a priest offering sacrifices, you offer your prayers as a sweet aroma before God.
+
+"I urge you, brothers and sisters, in view of God's mercy, to offer your bodies as a living sacrifice, holy and pleasing to God—this is your true and proper worship." - Romans 12:1
+
+YOUR PRIESTHOOD IS AN OFFERING:
+Just as Old Testament priests offered sacrifices for others, you offer yourself through intercession. This is your worship and service to God.
+
+WHAT INTERCESSORS SACRIFICE:
+
+1. TIME
+   • Early mornings or late nights in prayer
+   • Setting aside personal activities for prayer
+   • Consistent commitment regardless of feelings or schedule
+   • Your calendar reflects your priorities
+
+2. COMFORT
+   • Wrestling in prayer through difficult situations
+   • Bearing spiritual weight for others
+   • Fasting from food or pleasures for breakthrough
+   • Physical and emotional toll of deep intercession
+
+3. RECOGNITION
+   • Much intercession happens in secret
+   • Breakthrough comes but credit goes elsewhere
+   • Your name may never be known
+   • Reward comes from God, not man ("Your Father who sees in secret will reward you" - Matthew 6:6)
+
+4. PERSONAL AGENDA
+   • Praying God's will instead of your preferences
+   • Surrendering outcomes to God
+   • Dying to self-interest
+   • Your desires align with God's purposes
+
+THE WEIGHT OF INTERCESSION:
+When you truly intercede, you may:
+• Feel the burden of others' situations
+• Experience spiritual conflict
+• Wrestling in prayer until breakthrough
+• Give up time and comfort
+• Face opposition from the enemy
+
+This is why Jesus said, "The harvest is plentiful but the workers are few" - intercessory work is costly.
+
+THE REWARD:
+
+While sacrifice is real, so is the reward. The Lord is not a slave master but a loving Father:
+
+• INTIMACY WITH GOD DEEPENS
+  - You spend intimate time before His throne
+  - You know Him as the God who answers prayer
+  - Your relationship with God transforms through prayer
+
+• BREAKTHROUGH MANIFESTS
+  - Prayers are answered
+  - Situations change
+  - Spiritual victory comes
+  - The enemy's plans are thwarted
+
+• LIVES ARE TRANSFORMED
+  - People come to faith
+  - Families are healed
+  - Addictions are broken
+  - Hope is restored
+
+• GOD'S KINGDOM ADVANCES
+  - God's purposes are fulfilled
+  - People are saved and transformed
+  - Cities are reached
+  - Revival comes
+
+• YOUR PRAYERS OUTLIVE YOU
+  - Your intercession has eternal impact
+  - Breakthroughs you prayed for affect generations
+  - Your spiritual legacy continues
+  - Your prayers are recorded in heaven
+
+BIBLICAL EXAMPLES:
+
+MOSES (Exodus 32:30-32):
+After the golden calf incident, Moses offered his own life: "I will go up to the LORD; perhaps I can make atonement for your sin." Moses' intercession saved Israel from destruction.
+
+PAUL (Romans 9:3):
+"For I could wish that I myself were cursed and cut off from Christ for the sake of my people."
+Paul was willing to sacrifice his own salvation for others' salvation.
+
+JESUS' INTERCESSORY PRAYER (John 17):
+Jesus poured out His heart in intercessory prayer for His disciples and for all believers: "I pray also for those who will believe in me through their message..."
+His ultimate sacrifice was the cross itself—the ultimate intercession.
+
+THE ETERNAL PERSPECTIVE:
+Remember: Your sacrifice in prayer is not wasted. God sees every tear, every early morning, every burden borne. The rewards are:
+- Eternal in nature
+- Abundant in measure
+- Eternally satisfying
+- Worth the sacrifice
+
+"For our light and momentary troubles are achieving for us an eternal glory that far outweighs them all." - 2 Corinthians 4:17`,
+        scriptureReference: "Romans 12:1, Exodus 32:30-32, John 17",
+        prayerFocus: "Ask God to give you grace for the sacrifices intercession requires",
+        nextSteps: [
+          "Identify one area where God is asking you to sacrifice for the sake of intercession",
+          "Make a specific commitment this week",
+          "Journal about the rewards that motivate you to continue interceding"
+        ]
       }
     ]
   },
   {
     weekNumber: 8,
-    title: "The Intercessor's Life and Community",
-    description: "Develop the personal life of an intercessor and build community",
-    focusArea: "Growing as an Intercessor",
+    title: "Unity in Prayer",
+    description: "Discover the power of corporate and partnered intercession",
+    focusArea: "Agreement and Multiplied Authority",
     lessons: [
       {
         id: "week8-day1",
         dayNumber: 1,
-        title: "Personal Holiness and Prayer Life",
-        content: "An intercessor's effectiveness flows from personal holiness. God listens to those with clean hands and pure hearts. Prioritize your personal relationship with God, holy living, and daily communion with Him.",
-        scriptureReference: "Psalm 24:3-4, 1 Peter 3:7",
-        prayerFocus: "Cultivate personal holiness and intimacy with God",
-        nextSteps: ["Establish daily devotional time", "Address areas needing holiness"]
-      },
-      {
-        id: "week8-day2",
-        dayNumber: 2,
-        title: "Reading God's Word and Prayer",
-        content: "Bible reading is foundational to intercessory prayer. God's Word informs your prayers, gives you authority, and deepens your understanding of His will. A Bible-praying intercessor prays with power.",
-        scriptureReference: "Psalm 119:97-105, Joshua 1:8",
-        prayerFocus: "Allow God's Word to shape and fuel your prayers",
-        nextSteps: ["Establish Bible reading plan", "Pray God's promises"]
-      },
-      {
-        id: "week8-day3",
-        dayNumber: 3,
-        title: "Finding Your Prayer Community",
-        content: "God never intended for you to intercede alone. Prayer communities and intercession groups provide accountability, fellowship, and corporate anointing. Find or establish a prayer community.",
-        scriptureReference: "Matthew 18:19-20, Hebrews 10:24-25",
-        prayerFocus: "Connect with other intercessors in your area",
-        nextSteps: ["Find a prayer group or start one", "Commit to regular meetings"]
-      },
-      {
-        id: "week8-day4",
-        dayNumber: 4,
-        title: "Mentorship and Spiritual Growth",
-        content: "Intercessors need mentors and accountability partners. Seek out mature intercessors to learn from and develop spiritual friendships that deepen your prayer life. Also, mentor younger intercessors.",
-        scriptureReference: "Titus 2:3-4, 2 Timothy 2:2",
-        prayerFocus: "Seek mentorship and invest in others' spiritual growth",
-        nextSteps: ["Find a prayer mentor", "Mentor someone else in prayer"]
-      },
-      {
-        id: "week8-day5",
-        dayNumber: 5,
-        title: "Maintaining Balance in Prayer Life",
-        content: "Zealous intercession must be balanced with rest, relationships, and personal wellbeing. Avoid burnout through prayerful balance. God wants dedicated intercessors, not exhausted servants.",
-        scriptureReference: "Mark 6:31, Matthew 11:28",
-        prayerFocus: "Maintain healthy balance in your intercession",
-        nextSteps: ["Evaluate your prayer schedule", "Build in rest and family time"]
-      },
-      {
-        id: "week8-day6",
-        dayNumber: 6,
-        title: "Dealing with Spiritual Pressure",
-        content: "Intercessors sometimes feel the weight of others' burdens deeply. Learn to carry burdens authentically while not being crushed under them. Jesus modeled carrying the world's burdens while remaining joyful.",
-        scriptureReference: "Matthew 11:28-30, 1 Peter 5:7",
-        prayerFocus: "Cast your intercession burdens on Jesus",
-        nextSteps: ["Practice releasing burdens to God", "Find joy in intercession"]
-      },
-      {
-        id: "week8-day7",
-        dayNumber: 7,
-        title: "Week Eight Review",
-        content: "Reflect on your growth as an intercessor. Consider your community, your personal holiness, and your effectiveness. What needs adjustment? What's working well?",
-        prayerFocus: "Thank God for your journey in intercession",
-        nextSteps: ["Assess your prayer life", "Plan for continued growth"]
+        title: "Unity in Prayer",
+        content: `THE POWER OF AGREEMENT:
+"Again, truly I tell you that if two of you on earth agree about anything they ask for, it will be done for them by my Father in heaven." - Matthew 18:19
+
+This is not just a nice promise—it's a spiritual principle. Agreement in prayer activates God's power in extraordinary ways.
+
+WHY UNITY MATTERS:
+
+1. AMPLIFIED POWER
+   • One can chase a thousand, two can put ten thousand to flight (Deuteronomy 32:30)
+   • Corporate prayer releases greater breakthrough
+   • The more voices agree in prayer, the more powerful the effect
+   • Think: If one soldier can chase 1,000, two together can chase 10,000 (not just 2,000)
+   • This is spiritual multiplication, not just addition
+
+2. STRENGTH AND ENCOURAGEMENT
+   • Others sustain you when you're weary
+   • Shared burden is lighter burden
+   • You're not alone in the fight
+   • Others' faith strengthens your faith
+   • "As iron sharpens iron, so one person sharpens another" (Proverbs 27:12)
+
+3. DIVERSE PERSPECTIVES
+   • Different people receive different insights
+   • Prophetic revelation multiplies
+   • You see things others miss
+   • Others discern what you couldn't alone
+   • Wisdom multiplies through diverse counsel
+
+4. BIBLICAL PATTERN
+   • The early church prayed together (Acts 1:14)
+   • Pentecost came in a place of unity (Acts 2:1)
+   • Jesus taught about agreement in prayer (Matthew 18:19-20)
+   • God's pattern throughout Scripture is corporate intercession
+
+THE EARLY CHURCH MODEL:
+Acts 1:14 describes believers "all joined together constantly in prayer" - they were unified in purpose and prayer. This unity preceded Pentecost and resulted in the outpouring of the Holy Spirit. Then in Acts 2:1, "they were all together in one place" when the Spirit came. Unity is not just comforting—it's powerfully productive.
+
+PRACTICAL WAYS TO PRAY IN UNITY:
+
+1. JOIN A PRAYER GROUP
+   • Find or start an intercessory prayer team
+   • Meet regularly with consistent commitment
+   • Choose between:
+     - Weekly prayer meetings
+     - Prayer walks through your community
+     - Telephone prayer circles
+     - Prayer and worship gatherings
+
+2. ONLINE PRAYER NETWORKS
+   • Connect with global prayer movements
+   • Use technology to pray across distances
+   • Join international prayer initiatives
+   • Participate in prayer networks for nations, cities, or causes
+
+3. PRAYER PARTNERSHIPS
+   • Find a prayer partner for accountability
+   • Commit to regular prayer times together
+   • Share prayer requests weekly
+   • Encourage one another in intercession
+   • Check in on answered prayers
+
+4. CHURCH-WIDE PRAYER
+   • Participate in corporate prayer gatherings
+   • Support your church's prayer initiatives
+   • Join official prayer meetings
+   • Invite others to join you in prayer
+
+THE PRINCIPLE OF AGREEMENT:
+Agreement means:
+• Same heart and purpose
+• Not necessarily same method
+• Unified belief
+• Corporate faith
+• Focused agreement on one thing (even if each prays for it differently)
+
+For example: Two people praying for a city's salvation with different styles (one declares, one intercedes quietly) but same agreement = multiplied power.
+
+THE MULTIPLIED EFFECT:
+Jesus promised: "For where two or three gather in my name, there am I with them." - Matthew 18:20
+
+This means:
+• Jesus Himself joins your prayer
+• His presence amplifies your prayer
+• His authority backs your agreement
+• Divine leverage multiplies
+
+This is not about magic words or perfect formula. It's about:
+- Genuine agreement in purpose
+- United hearts before God
+- Focused intercession
+- Faith joined with faith
+
+THE WITNESS OF HISTORY:
+Major spiritual movements have been birthed through corporate intercession:
+- The Great Awakenings
+- Missionary movements
+- Revival outbreaks
+- Social transformations
+- City and national recoveries
+
+Behind every major spiritual movement is prayer agreement—groups of believers united in intercession for breakthrough. YOU can be part of this legacy.`,
+        scriptureReference: "Matthew 18:19-20, Acts 1:14, Acts 2:1",
+        prayerFocus: "Pray for unity and divine connection with prayer partners",
+        nextSteps: [
+          "Reach out to at least one other believer to establish a prayer partnership",
+          "Or join an existing prayer group in your church or community",
+          "Set a regular meeting time and commit to it"
+        ]
       }
     ]
   },
   {
     weekNumber: 9,
-    title: "Prophetic Intercession and the Future",
-    description: "Engage in prophetic intercession that shapes the future according to God's purposes",
-    focusArea: "Interceding God's Future Into Being",
+    title: "Operating in Your Intercessory Authority",
+    description: "Understand and exercise your delegated authority in prayer",
+    focusArea: "Authority and Spiritual Enforcement",
     lessons: [
       {
         id: "week9-day1",
         dayNumber: 1,
-        title: "Understanding Prophetic Prayer",
-        content: "Prophetic intercession involves praying out God's purposes before they manifest naturally. Intercessors with prophetic insight partner with God to establish His kingdom agenda on earth.",
-        scriptureReference: "Jeremiah 1:10, Matthew 6:10",
-        prayerFocus: "Pray God's purposes and not just requests",
-        nextSteps: ["Identify God's purposes to pray for", "Pray God's kingdom agenda"]
-      },
-      {
-        id: "week9-day2",
-        dayNumber: 2,
-        title: "Interceding Against False Doctrines",
-        content: "Prophetic intercessors stand against false doctrines and spiritual deception. This kind of intercession protects the church and society from spiritual error and darkness.",
-        scriptureReference: "1 Timothy 4:1-3, 2 Peter 2:1",
-        prayerFocus: "Intercede against spiritual deception",
-        nextSteps: ["Identify current deceptions to pray against", "Pray for truth to prevail"]
-      },
-      {
-        id: "week9-day3",
-        dayNumber: 3,
-        title: "Watching for Signs of the Times",
-        content: "Prophetic intercessors are alert to what God is doing and saying in their day. Stay aware of current events, spiritual climate, and God's purposes being revealed. This informs meaningful intercession.",
-        scriptureReference: "Matthew 16:1-3, 1 Chronicles 12:32",
-        prayerFocus: "Stay alert to God's current purposes",
-        nextSteps: ["Study current events spiritually", "Pray regarding God's timing"]
-      },
-      {
-        id: "week9-day4",
-        dayNumber: 4,
-        title: "Interceding for Destiny Fulfillment",
-        content: "Many believers have God-given destinies that need intercession to be realized. Partner with God to see His purposes fulfilled in individual lives, ministries, and nations.",
-        scriptureReference: "Psalm 37:4-5, Proverbs 19:21",
-        prayerFocus: "Intercede for God's destiny purposes to be fulfilled",
-        nextSteps: ["Identify destinies to pray for", "Intercede for their fulfillment"]
-      },
-      {
-        id: "week9-day5",
-        dayNumber: 5,
-        title: "Global Prayer Movements",
-        content: "Throughout history, prayer movements have shaped nations and history. Participate in or initiate prayer movements that align with God's purposes for this generation. Corporate prophetic prayer is powerful.",
-        scriptureReference: "Acts 12:5, Revelation 5:8",
-        prayerFocus: "Join or start a prayer movement",
-        nextSteps: ["Connect with global prayer initiatives", "Launch local prayer movement"]
-      },
-      {
-        id: "week9-day6",
-        dayNumber: 6,
-        title: "Heavenly Vision and Heavenly Perspective",
-        content: "The highest intercession flows from heavenly vision and perspective. Ask God to show you what He sees from heaven. Pray from heaven's perspective, not earth's, to see real transformation.",
-        scriptureReference: "Revelation 4:1-2, Philippians 3:20",
-        prayerFocus: "Ask for heavenly vision and perspective",
-        nextSteps: ["Seek God's vision for your generation", "Intercede from heaven's view"]
-      },
-      {
-        id: "week9-day7",
-        dayNumber: 7,
-        title: "Week Nine Review",
-        content: "Reflect on prophetic intercession and how it elevates your prayer beyond immediate needs to God's eternal purposes. What is God showing you about the future?",
-        prayerFocus: "Align your prayers with God's eternal purposes",
-        nextSteps: ["Document prophetic insights", "Plan prophetic intercession moving forward"]
-      }
-    ]
-  },
-  {
-    weekNumber: 10,
-    title: "Commissioning: Your Calling as an Intercessor",
-    description: "Receive your commission as a called intercessor and move forward in your ministry",
-    focusArea: "Your Life Purpose as an Intercessor",
-    lessons: [
-      {
-        id: "week10-day1",
-        dayNumber: 1,
-        title: "Recognizing Your Calling",
-        content: "God calls intercessors. This course has helped you recognize and understand your calling to intercession. Embrace this calling fully. You have been chosen to stand in the gap for others.",
-        scriptureReference: "Ephesians 4:1, 1 Peter 2:9",
-        prayerFocus: "Accept your calling as an intercessor with joy",
-        nextSteps: ["Affirm your calling", "Tell someone about your commitment"]
-      },
-      {
-        id: "week10-day2",
-        dayNumber: 2,
-        title: "Your Sphere of Influence",
-        content: "God has given you specific spheres of influence where you intercede. This might be family, workplace, church, city, or nation. Understand and embrace your specific intercession assignment.",
-        scriptureReference: "Jeremiah 29:11, 1 Corinthians 12:18",
-        prayerFocus: "Clarify your intercession assignment",
-        nextSteps: ["Define your intercession sphere", "Plan strategic intercession"]
-      },
-      {
-        id: "week10-day3",
-        dayNumber: 3,
-        title: "Stewardship of Your Prayer Life",
-        content: "Your prayer life is a sacred trust. God has given you time, authority, and anointing for intercession. Be faithful stewards of this gift. Make prayer a priority and guard your prayer time zealously.",
-        scriptureReference: "1 Corinthians 4:2, Luke 12:48",
-        prayerFocus: "Commit to faithful stewardship of your prayer ministry",
-        nextSteps: ["Schedule protected prayer time", "Guard your intercession commitment"]
-      },
-      {
-        id: "week10-day4",
-        dayNumber: 4,
-        title: "Passing the Torch",
-        content: "As you grow in intercession, develop the next generation. Mentor younger intercessors. The torch of intercession must be passed to successive generations. Your investment multiplies eternally.",
-        scriptureReference: "2 Timothy 2:2, Titus 2:3-4",
-        prayerFocus: "Commit to mentoring others in intercession",
-        nextSteps: ["Identify someone to mentor", "Begin mentoring relationship"]
-      },
-      {
-        id: "week10-day5",
-        dayNumber: 5,
-        title: "Your Legacy of Prayer",
-        content: "What will your intercession legacy be? Think about the generations that will be blessed by your faithful prayers. Your intercession changes history and impacts eternity.",
-        scriptureReference: "Psalm 78:4, Proverbs 22:6",
-        prayerFocus: "Pray that your intercession leaves a godly legacy",
-        nextSteps: ["Envision your prayer legacy", "Communicate it to others"]
-      },
-      {
-        id: "week10-day6",
-        dayNumber: 6,
-        title: "Continuing the Journey",
-        content: "This course is a beginning, not an end. Your intercession journey continues lifelong. Stay committed to growth, deepening, and greater effectiveness. The role of an intercessor is a high calling.",
-        scriptureReference: "Philippians 3:12-14, 2 Timothy 4:7",
-        prayerFocus: "Commit to lifelong growth in intercession",
-        nextSteps: ["Plan next steps in prayer development", "Set new intercession goals"]
-      },
-      {
-        id: "week10-day7",
-        dayNumber: 7,
-        title: "Living Out Your Intercession",
-        content: "You have completed this course. Now live it. Your intercession is not just something you do—it's who you are. Go forth as an equipped, commissioned intercessor. May God use your prayers to change the world.",
-        prayerFocus: "Thank God for the journey and commission ahead",
-        nextSteps: ["Celebrate your completion", "Begin your intercession ministry formally"]
+        title: "Operating in Your Intercessory Authority",
+        content: `UNDERSTANDING YOUR AUTHORITY:
+As a believer and intercessor, you operate in delegated authority from Jesus Christ. You don't beg God—you enforce His will on earth through prayer.
+
+This is not presumption. This is your rightful authority as a believer and co-heir with Christ.
+
+FOUNDATIONS OF YOUR AUTHORITY:
+
+1. JESUS' FINISHED WORK
+   • All authority given to Him (Matthew 28:18)
+     "Then Jesus came to them and said, 'All authority in heaven and on earth has been given to me.'"
+   
+   • Authority delegated to believers (Luke 10:19)
+     "I have given you authority to trample on snakes and scorpions and to overcome all the power of the enemy; nothing will harm you."
+   
+   • Victory already secured at the cross (1 Corinthians 15:57)
+     "But thanks be to God, who gives us the victory through our Lord Jesus Christ."
+   
+   The war is won. You're not fighting to win—you're fighting from victory.
+
+2. YOUR IDENTITY IN CHRIST
+   • Seated in heavenly places (Ephesians 2:6)
+     "And God raised us up with Christ and seated us with him in the heavenly realms in Christ Jesus"
+     You are positionally above the enemy, in a place of authority
+   
+   • Ambassador of the Kingdom (2 Corinthians 5:20)
+     "We are therefore Christ's ambassadors, as though God were making his appeal through us"
+     You represent the King and carry His authority
+   
+   • Priest and king (Revelation 1:6)
+     "To him who loves us and has freed us from our sins by his blood, and has made us to be a kingdom and priests to serve his God and Father"
+     You have both intercessory (priest) and ruling (king) authority
+
+3. THE WORD OF GOD
+   • Praying Scripture releases power
+   • God's Word never returns void (Isaiah 55:11)
+     "So is my word that goes out from my mouth: It will not return to me empty, but will accomplish all I have planned and prove successful in the purpose for which I sent it."
+   • Declarations based on truth have authority
+   • The enemy bows to God's Word
+
+HOW TO EXERCISE AUTHORITY:
+
+1. KNOW YOUR RIGHTS
+   • Study what Scripture says about your authority
+   • Know your covenant promises
+   • Understand your legal standing in Christ
+   • Examples of your authority:
+     - Bind and loose (Matthew 18:18)
+     - Command mountains to move (Mark 11:23)
+     - Tread on serpents and scorpions (Luke 10:19)
+     - Overcome all power of the enemy (Luke 10:19)
+
+2. PRAY BOLDLY
+   • Come to the throne with confidence (Hebrews 4:16)
+     "Let us then approach God's throne of grace with confidence, so that we may receive mercy and find grace to help us in our time of need."
+   
+   • Make declarations, not just requests
+     Instead of: "Dear God, maybe if You want to..."
+     Pray: "By the authority of Jesus Christ and His blood, I declare breakthrough..."
+   
+   • Command mountains to move (Mark 11:23)
+     "Therefore I tell you, whatever you ask for in prayer, believe that you have received it, and it will be yours."
+
+3. ENFORCE VICTORY
+   • Remind the enemy of his defeat
+   • Bind and loose (Matthew 18:18)
+     "Whatever you bind on earth will be bound in heaven, and whatever you loose on earth will be loosed in heaven."
+   
+   • Close spiritual doors the enemy uses
+     ("I close the door to depression. I open the door to God's joy.")
+   
+   • Remind the enemy: "Jesus won. The cross is finished. You are defeated."
+
+4. PERSIST UNTIL BREAKTHROUGH
+   • Don't give up after one prayer
+   • Press through resistance
+   • Stand on God's promises
+   • Expect victory, not struggle
+
+PRAYER FROM AUTHORITY (Not Begging):
+Authority-based prayer sounds different:
+• BEGGING: "Oh Lord, please maybe consider helping..."
+• AUTHORITY: "I declare in the name of Jesus that this situation changes now..."
+
+BIBLICAL EXAMPLES:
+
+ELIJAH (James 5:17):
+"Elijah was a human being, even as we are. He prayed earnestly that it would not rain, and it did not rain on the land for three and a half years. Again he prayed, and the heavens gave rain..."
+Elijah prayed with authority and shaped weather patterns. He wasn't begging—he was declaring.
+
+JOSHUA (Joshua 10:12-13):
+"On the day the LORD gave the Amorites over to Israel, Joshua said to the LORD in the presence of Israel: 'Sun, stand still over Gibeah, and you, moon, over the Valley of Aijalon.' So the sun stood still, and the moon stopped..."
+Joshua commanded the celestial bodies in faith, and they obeyed.
+
+PAUL AND SILAS (Acts 16:25-26):
+"About midnight Paul and Silas were praying and singing hymns to God, and the other prisoners were listening. Suddenly there was such a violent earthquake that the foundations of the prison were shaken. At once all the prison doors flew open, and everyone's chains came loose."
+Their prayers literally shook the earth and changed circumstances.
+
+THE BELIEVER'S AUTHORITY OVER:
+• The enemy and his schemes - You have authority to bind and rebuke
+• Sickness and disease - You can declare healing
+• Situations and circumstances - You can declare God's will
+• Spiritual atmospheres - You can change the spiritual climate through declaration
+• Cities and regions - Intercessors shape the spiritual destiny of places
+
+YOUR RESPONSIBILITY:
+With authority comes responsibility:
+• Use it for God's kingdom purposes only
+• Pray God's will, not your preferences
+• Exercise it in humility and submission to God
+• Intercede with faith and boldness
+• Remember the enemy is defeated—you're enforcing an already-won victory
+
+PRACTICAL EXERCISE IN AUTHORITY:
+This week, choose one Scripture promise and pray it boldly over a specific situation.
+
+Example: If praying for someone's salvation:
+"I declare in the name of Jesus and by His authority that [person's name] receives eternal life. I bind the spirit of blindness and loose the spirit of revelation. The blood of Jesus has already purchased their salvation. I stand on God's promise in John 6:37 that all who come to the Father come through Jesus. I declare it done."
+
+Pray this daily with faith until you see breakthrough.
+
+FINAL TRUTH:
+You are not weak in prayer. You carry the authority of the King of Kings.
+You are not powerless. The same authority that raised Jesus from the dead works through your prayers.
+You are not begging for crumbs. You are enforcing the finished victory of the cross.
+Pray with authority. Pray with faith. Pray with boldness.
+The God who commands the universe backs your prayers.`,
+        scriptureReference: "Luke 10:19, Ephesians 6:12, Matthew 28:18, Luke 10:19",
+        prayerFocus: "Pray with newly-recognized authority; declare God's will and purposes",
+        nextSteps: [
+          "Choose one Scripture promise and pray it boldly over a specific situation this week",
+          "Declare it daily until you see breakthrough",
+          "Share your breakthrough testimony with others to encourage their faith"
+        ]
       }
     ]
   }
