@@ -6,6 +6,7 @@ export const IntercessorPersonalityQuiz: React.FC = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState<Record<string, IntercessorType>>({});
   const [showResults, setShowResults] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   const handleAnswer = (type: IntercessorType) => {
     const question = quizQuestions[currentQuestion];
@@ -23,6 +24,31 @@ export const IntercessorPersonalityQuiz: React.FC = () => {
     setCurrentQuestion(0);
     setAnswers({});
     setShowResults(false);
+    setCopied(false);
+  };
+
+  const handleShare = () => {
+    const results = calculateResults(answers);
+    const primaryProfile = results.primary ? intercessorTypeProfiles[results.primary] : null;
+    const secondaryProfile = results.secondary ? intercessorTypeProfiles[results.secondary] : null;
+
+    let shareText = `🎯 I discovered my intercessor personality type!\n\n`;
+    shareText += `Primary Type: ${primaryProfile?.name}\n`;
+    shareText += `${primaryProfile?.title}\n\n`;
+    
+    if (secondaryProfile && results.primary !== results.secondary) {
+      shareText += `Secondary Type: ${secondaryProfile.name}\n`;
+      shareText += `${secondaryProfile.title}\n\n`;
+    }
+
+    shareText += `Join me and take the Intercessor Personality Quiz!\n`;
+    shareText += `Learn your unique prayer style and how God has wired you for intercession.\n`;
+    shareText += `https://col-prayer-course.vercel.app`;
+
+    navigator.clipboard.writeText(shareText).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
   };
 
   const results = calculateResults(answers);
@@ -166,13 +192,24 @@ export const IntercessorPersonalityQuiz: React.FC = () => {
           )}
 
           {/* Actions */}
-          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginTop: '2rem' }}>
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', alignItems: 'center', marginTop: '2rem' }}>
             <button className="btn btn-primary" onClick={handleRestart}>
               Retake Quiz
             </button>
-            <p style={{ alignSelf: 'center', margin: 0, color: 'var(--text-secondary)' }}>
-              Share your personality type with your prayer partners!
-            </p>
+            <button
+              className="btn"
+              style={{
+                backgroundColor: copied ? 'var(--success-color)' : '#0891b2',
+                color: 'white',
+                border: 'none',
+                padding: '0.75rem 1.5rem',
+                cursor: 'pointer',
+                transition: 'background-color 0.2s'
+              }}
+              onClick={handleShare}
+            >
+              {copied ? '✓ Copied!' : '📤 Share Results'}
+            </button>
           </div>
         </>
       )}
