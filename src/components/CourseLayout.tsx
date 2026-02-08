@@ -2,6 +2,7 @@ import React from 'react';
 import { courseContent, courseIntroduction } from '../data/courseContent';
 import { useAppStore } from '../store/appStore';
 import { getTranslations } from '../data/i18n';
+import { getLessonTranslations } from '../data/lessonTranslations';
 import '../styles/components.css';
 
 interface CourseLayoutProps {
@@ -13,9 +14,18 @@ export const CourseLayout: React.FC<CourseLayoutProps> = ({ onSelectLesson }) =>
   const userProgress = useAppStore((state) => state.userProgress);
   const [selectedWeek, setSelectedWeek] = React.useState(1);
   const t = getTranslations(language);
+  const courseTranslations = getLessonTranslations(language);
 
   const week = selectedWeek === 0 ? null : courseContent.find(w => w.weekNumber === selectedWeek);
   const completedLessons = userProgress?.completedLessons || [];
+
+  // Use translated content if available
+  const displayIntro = {
+    title: courseTranslations.title || courseIntroduction.title,
+    subtitle: courseTranslations.subtitle || courseIntroduction.subtitle,
+    content: courseTranslations.content || courseIntroduction.content,
+    prayerToStart: courseTranslations.prayerToStart || courseIntroduction.prayerToStart,
+  };
 
   const calculateWeekCompletion = (weekNum: number) => {
     const weekContent = courseContent.find(w => w.weekNumber === weekNum);
@@ -75,18 +85,18 @@ export const CourseLayout: React.FC<CourseLayoutProps> = ({ onSelectLesson }) =>
       <main>
         {selectedWeek === 0 && (
           <div className="card mb-6">
-            <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>{courseIntroduction.title}</h1>
+            <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>{displayIntro.title}</h1>
             <p style={{ fontSize: '1.25rem', color: 'var(--primary-color)', fontWeight: '500', marginBottom: '2rem' }}>
-              {courseIntroduction.subtitle}
+              {displayIntro.subtitle}
             </p>
             
             <div style={{ whiteSpace: 'pre-wrap', lineHeight: 1.8, color: 'var(--text-primary)', marginBottom: '2rem' }}>
-              {courseIntroduction.content}
+              {displayIntro.content}
             </div>
 
             <div className="card" style={{ backgroundColor: '#f5f3ff', borderLeft: '4px solid var(--primary-color)', padding: '1.5rem', marginTop: '2rem' }}>
               <h3 style={{ marginTop: 0 }}>Prayer to Start</h3>
-              <p style={{ fontStyle: 'italic', lineHeight: 1.8 }}>{courseIntroduction.prayerToStart}</p>
+              <p style={{ fontStyle: 'italic', lineHeight: 1.8 }}>{displayIntro.prayerToStart}</p>
             </div>
 
             <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem' }}>
@@ -108,10 +118,10 @@ export const CourseLayout: React.FC<CourseLayoutProps> = ({ onSelectLesson }) =>
           <>
             <div className="card mb-6">
               <h1>{week.title}</h1>
-              <p className="text-secondary mt-2">{week.description}</p>
+              <p className="text-secondary mt-2">{courseTranslations.weekDescriptions?.[week.weekNumber] || week.description}</p>
               <div className="mt-4">
                 <p className="font-bold mb-2">Focus Area:</p>
-                <p>{week.focusArea}</p>
+                <p>{courseTranslations.weekFocusAreas?.[week.weekNumber] || week.focusArea}</p>
               </div>
               <div className="mt-4">
                 <p className="text-sm text-secondary">

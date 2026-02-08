@@ -3,6 +3,7 @@ import { useAppStore } from '../store/appStore';
 import { courseContent } from '../data/courseContent';
 import { IntercessorPersonalityQuiz } from './IntercessorPersonalityQuiz';
 import { getTranslations } from '../data/i18n';
+import { getTranslatedLesson } from '../data/lessonTranslations';
 import '../styles/components.css';
 
 interface LessonProps {
@@ -26,6 +27,11 @@ export const LessonView: React.FC<LessonProps> = ({ weekNumber, dayNumber }) => 
   const [showQuiz, setShowQuiz] = React.useState(false);
 
   const t = getTranslations(language);
+  
+  // Get translated lesson content if available
+  const translatedLesson = lesson ? getTranslatedLesson(language, lesson.id) : null;
+  const displayTitle = translatedLesson?.title || lesson?.title || '';
+  const displayContent = translatedLesson?.content || lesson?.content || '';
   
   if (!lesson) return <div>Lesson not found</div>;
 
@@ -55,7 +61,7 @@ export const LessonView: React.FC<LessonProps> = ({ weekNumber, dayNumber }) => 
         <div className="flex justify-between items-center">
           <div>
             <span className="badge badge-primary mb-2">{t.week} {weekNumber} • {t.day} {dayNumber}</span>
-            <h1>{lesson.title}</h1>
+            <h1>{displayTitle}</h1>
             {week && (
               <p style={{ color: '#666', marginTop: '0.5rem', fontSize: '0.95rem' }}>
                 <strong>{t.weekFocus}:</strong> {week.focusArea}
@@ -101,7 +107,7 @@ export const LessonView: React.FC<LessonProps> = ({ weekNumber, dayNumber }) => 
       <section className="card mb-6">
         <h2 className="mb-4">{t.lesson}</h2>
         <div className="lesson-content">
-          <p style={{ fontSize: '1.05rem', lineHeight: '1.8', marginBottom: '1.5rem' }}>{lesson.content}</p>
+          <p style={{ fontSize: '1.05rem', lineHeight: '1.8', marginBottom: '1.5rem' }}>{displayContent}</p>
           
           {lesson.scriptureReference && (
             <div className="mt-4 p-4 bg-blue-50 rounded" style={{ 
