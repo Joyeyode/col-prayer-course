@@ -13,7 +13,7 @@ export const LessonView: React.FC<LessonProps> = ({ weekNumber, dayNumber }) => 
   const week = courseContent.find(w => w.weekNumber === weekNumber);
   const lesson = week?.lessons.find(l => l.dayNumber === dayNumber);
   
-  const { userProgress, markLessonComplete, addNote, getNotesForLesson } = useAppStore();
+  const { userProgress, markLessonComplete, addNote, getNotesForLesson, toggleFavorite, isFavorited } = useAppStore();
   const [showNoteForm, setShowNoteForm] = React.useState(false);
   const [noteContent, setNoteContent] = React.useState('');
   const [showQuiz, setShowQuiz] = React.useState(false);
@@ -21,6 +21,7 @@ export const LessonView: React.FC<LessonProps> = ({ weekNumber, dayNumber }) => 
   if (!lesson) return <div>Lesson not found</div>;
 
   const isCompleted = userProgress?.completedLessons.includes(lesson.id) || false;
+  const isFav = isFavorited(lesson.id);
   const notes = getNotesForLesson(lesson.id);
 
   const handleMarkComplete = () => {
@@ -52,12 +53,39 @@ export const LessonView: React.FC<LessonProps> = ({ weekNumber, dayNumber }) => 
               </p>
             )}
           </div>
-          <button
-            className={isCompleted ? 'btn btn-success' : 'btn btn-primary'}
-            onClick={handleMarkComplete}
-          >
-            {isCompleted ? '✓ Completed' : 'Mark Complete'}
-          </button>
+          <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+            <button
+              onClick={() => toggleFavorite(lesson.id)}
+              title={isFav ? 'Remove from favorites' : 'Add to favorites'}
+              style={{
+                backgroundColor: 'transparent',
+                border: '2px solid var(--secondary-color)',
+                color: isFav ? 'var(--secondary-color)' : 'var(--text-secondary)',
+                padding: '0.5rem 1rem',
+                borderRadius: '6px',
+                cursor: 'pointer',
+                fontSize: '1.2rem',
+                fontWeight: 'bold',
+                transition: 'all 0.2s ease',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = 'var(--secondary-color)';
+                e.currentTarget.style.color = 'white';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = isFav ? 'var(--secondary-color)' : 'transparent';
+                e.currentTarget.style.color = isFav ? 'white' : 'var(--text-secondary)';
+              }}
+            >
+              {isFav ? '⭐' : '☆'}
+            </button>
+            <button
+              className={isCompleted ? 'btn btn-success' : 'btn btn-primary'}
+              onClick={handleMarkComplete}
+            >
+              {isCompleted ? '✓ Completed' : 'Mark Complete'}
+            </button>
+          </div>
         </div>
       </header>
 
@@ -67,23 +95,35 @@ export const LessonView: React.FC<LessonProps> = ({ weekNumber, dayNumber }) => 
           <p style={{ fontSize: '1.05rem', lineHeight: '1.8', marginBottom: '1.5rem' }}>{lesson.content}</p>
           
           {lesson.scriptureReference && (
-            <div className="mt-4 p-4 bg-blue-50 rounded" style={{ backgroundColor: '#e8f2fa', borderLeft: '4px solid #20B2AA' }}>
-              <p className="font-bold text-sm mb-1" style={{ color: '#003d7a' }}>📖 Scripture Reference:</p>
-              <p className="text-sm" style={{ fontSize: '1rem' }}>{lesson.scriptureReference}</p>
+            <div className="mt-4 p-4 bg-blue-50 rounded" style={{ 
+              backgroundColor: 'var(--surface)',
+              borderLeft: '4px solid var(--secondary-color)',
+              border: '1px solid var(--border-color)'
+            }}>
+              <p className="font-bold text-sm mb-1" style={{ color: 'var(--primary-color)' }}>📖 Scripture Reference:</p>
+              <p className="text-sm" style={{ fontSize: '1rem', color: 'var(--text-primary)' }}>{lesson.scriptureReference}</p>
             </div>
           )}
 
           {lesson.prayerFocus && (
-            <div className="mt-4 p-4 bg-purple-50 rounded" style={{ backgroundColor: '#e8f2fa', borderLeft: '4px solid #20B2AA' }}>
-              <p className="font-bold text-sm mb-1" style={{ color: '#003d7a' }}>🙏 Prayer Focus:</p>
-              <p className="text-sm" style={{ fontSize: '1rem' }}>{lesson.prayerFocus}</p>
+            <div className="mt-4 p-4 bg-purple-50 rounded" style={{ 
+              backgroundColor: 'var(--surface)',
+              borderLeft: '4px solid #9333ea',
+              border: '1px solid var(--border-color)'
+            }}>
+              <p className="font-bold text-sm mb-1" style={{ color: 'var(--primary-color)' }}>🙏 Prayer Focus:</p>
+              <p className="text-sm" style={{ fontSize: '1rem', color: 'var(--text-primary)' }}>{lesson.prayerFocus}</p>
             </div>
           )}
 
           {lesson.nextSteps && lesson.nextSteps.length > 0 && (
-            <div className="mt-4 p-4 bg-green-50 rounded" style={{ backgroundColor: '#e8f2fa', borderLeft: '4px solid #20B2AA' }}>
-              <p className="font-bold text-sm mb-2" style={{ color: '#003d7a' }}>✍️ Next Steps:</p>
-              <ul className="text-sm" style={{ fontSize: '1rem' }}>
+            <div className="mt-4 p-4 bg-green-50 rounded" style={{ 
+              backgroundColor: 'var(--surface)',
+              borderLeft: '4px solid #22c55e',
+              border: '1px solid var(--border-color)'
+            }}>
+              <p className="font-bold text-sm mb-2" style={{ color: 'var(--primary-color)' }}>✍️ Next Steps:</p>
+              <ul className="text-sm" style={{ fontSize: '1rem', color: 'var(--text-primary)' }}>
                 {lesson.nextSteps.map((step, index) => (
                   <li key={index} className="mb-1">
                     • {step}

@@ -17,6 +17,14 @@ interface AppState {
   unmarkLessonComplete: (lessonId: string, weekNumber: number) => void;
   getCurrentWeek: () => number;
   getCompletionPercentage: () => number;
+  currentStreak: number;
+  lastCompletedDate: Date | null;
+  calculateStreak: () => void;
+
+  // Favorites/Bookmarks
+  favorites: string[];
+  toggleFavorite: (lessonId: string) => void;
+  isFavorited: (lessonId: string) => boolean;
 
   // Journal entries
   journalEntries: JournalEntry[];
@@ -43,6 +51,41 @@ export const useAppStore = create<AppState>()(
       setUser: (user: User) => set({ user }),
 
       userProgress: null,
+      currentStreak: 0,
+      lastCompletedDate: null,
+
+      calculateStreak: () => {
+        const state = get();
+        const progress = state.userProgress;
+        if (!progress || progress.completedLessons.length === 0) {
+          set({ currentStreak: 0 });
+          return;
+        }
+
+        // For simplicity, track consecutive last completed dates
+        // In a real app, you'd check daily completion records
+        const today = new Date();
+        const lastCompleted = state.lastCompletedDate ? new Date(state.lastCompletedDate) : null;
+        
+        if (!lastCompleted) {
+          set({ currentStreak: 1 });
+          return;
+        }
+
+        const daysDiff = Math.floor((today.getTime() - lastCompleted.getTime()) / (1000 * 60 * 60 * 24));
+        
+        if (daysDiff === 0) {
+          // Same day - keep current streak
+          return;
+        } else if (daysDiff === 1) {
+          // Consecutive day - increment streak
+          set((state) => ({ currentStreak: state.currentStreak + 1 }));
+        } else {
+          // Streak broken - reset to 1
+          set({ currentStreak: 1 });
+        }
+      },
+
       markLessonComplete: (lessonId: string, weekNumber: number) => {
         set((state) => {
           if (!state.userProgress) {
@@ -61,6 +104,11 @@ export const useAppStore = create<AppState>()(
               state.userProgress.marks.push({ lessonId, marked: true, markedAt: new Date() });
             }
           }
+          
+          // Update last completed date and recalculate streak
+          set({ lastCompletedDate: new Date() });
+          get().calculateStreak();
+          
           return { userProgress: state.userProgress };
         });
       },
@@ -87,9 +135,22 @@ export const useAppStore = create<AppState>()(
       getCompletionPercentage: () => {
         const progress = get().userProgress;
         if (!progress) return 0;
-        // 10 weeks * 7 days = 70 total lessons
-        const totalLessons = 70;
+        // 9 weeks * 7 days = 63 total lessons
+        const totalLessons = 63;
         return Math.round((progress.completedLessons.length / totalLessons) * 100);
+      },
+
+      favorites: [],
+      toggleFavorite: (lessonId: string) => {
+        set((state) => ({
+          favorites: state.favorites.includes(lessonId)
+            ? state.favorites.filter(id => id !== lessonId)
+            : [...state.favorites, lessonId],
+        }));
+      },
+
+      isFavorited: (lessonId: string) => {
+        return get().favorites.includes(lessonId);
       },
 
       journalEntries: [],
@@ -153,7 +214,7 @@ export const useAppStore = create<AppState>()(
       },
     }),
     {
-      name: 'prayer-course-app-store',
+      name: 'prayer-course-app-store-v2',
     }
   )
 );

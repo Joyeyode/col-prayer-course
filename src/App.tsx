@@ -1,15 +1,18 @@
 import React from 'react';
 import { useAppStore } from './store/appStore';
 import { Dashboard } from './components/Dashboard';
+import { ProgressDashboard } from './components/ProgressDashboard';
 import { CourseLayout } from './components/CourseLayout';
 import { LessonView } from './components/LessonView';
 import { JournalView } from './components/JournalView';
 import { ResourcesView } from './components/ResourcesView';
+import { FavoritesView } from './components/FavoritesView';
+import { WeeklyReview } from './components/WeeklyReview';
 import prayerBannerUrl from '../public/prayer-banner.png?url';
 import './styles/global.css';
 import './styles/components.css';
 
-type Page = 'dashboard' | 'course' | 'lesson' | 'journal' | 'resources';
+type Page = 'dashboard' | 'progress' | 'course' | 'lesson' | 'journal' | 'resources' | 'favorites' | 'review';
 
 interface LessonSelection {
   weekNumber: number;
@@ -19,6 +22,7 @@ interface LessonSelection {
 export function App() {
   const [currentPage, setCurrentPage] = React.useState<Page>('dashboard');
   const [selectedLesson, setSelectedLesson] = React.useState<LessonSelection | null>(null);
+  const [reviewWeek, setReviewWeek] = React.useState<number | null>(null);
   const [installPrompt, setInstallPrompt] = React.useState<any>(null);
   const [isInstalled, setIsInstalled] = React.useState(false);
   const { user, setUser, darkMode, setDarkMode } = useAppStore();
@@ -88,6 +92,11 @@ export function App() {
     setCurrentPage('course');
   };
 
+  const handleViewWeeklyReview = (weekNumber: number) => {
+    setReviewWeek(weekNumber);
+    setCurrentPage('review');
+  };
+
   return (
     <div className="app" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       {/* Prayer Banner */}
@@ -140,6 +149,16 @@ export function App() {
               Dashboard
             </button>
             <button
+              onClick={() => setCurrentPage('progress')}
+              className={`nav-link ${currentPage === 'progress' ? 'active' : ''}`}
+              style={{
+                color: currentPage === 'progress' ? 'white' : 'rgba(255,255,255,0.7)',
+                backgroundColor: currentPage === 'progress' ? 'rgba(255,255,255,0.2)' : 'transparent',
+              }}
+            >
+              📊 Progress
+            </button>
+            <button
               onClick={() => setCurrentPage('course')}
               className={`nav-link ${currentPage === 'course' || currentPage === 'lesson' ? 'active' : ''}`}
               style={{
@@ -148,6 +167,16 @@ export function App() {
               }}
             >
               Course
+            </button>
+            <button
+              onClick={() => setCurrentPage('favorites')}
+              className={`nav-link ${currentPage === 'favorites' ? 'active' : ''}`}
+              style={{
+                color: currentPage === 'favorites' ? 'white' : 'rgba(255,255,255,0.7)',
+                backgroundColor: currentPage === 'favorites' ? 'rgba(255,255,255,0.2)' : 'transparent',
+              }}
+            >
+              ⭐ Favorites
             </button>
             <button
               onClick={() => setCurrentPage('journal')}
@@ -216,6 +245,7 @@ export function App() {
       <main style={{ flex: 1, padding: '2rem 0' }}>
         <div className="container">
           {currentPage === 'dashboard' && <Dashboard />}
+          {currentPage === 'progress' && <ProgressDashboard />}
           {currentPage === 'course' && <CourseLayout onSelectLesson={handleSelectLesson} />}
           {currentPage === 'lesson' && selectedLesson && (
             <>
@@ -225,6 +255,8 @@ export function App() {
               <LessonView weekNumber={selectedLesson.weekNumber} dayNumber={selectedLesson.dayNumber} />
             </>
           )}
+          {currentPage === 'favorites' && <FavoritesView onSelectLesson={handleSelectLesson} />}
+          {currentPage === 'review' && reviewWeek && <WeeklyReview weekNumber={reviewWeek} />}
           {currentPage === 'journal' && <JournalView />}
           {currentPage === 'resources' && <ResourcesView />}
         </div>
