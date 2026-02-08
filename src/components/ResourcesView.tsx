@@ -280,23 +280,23 @@ export const ResourcesView: React.FC = () => {
                   key={index}
                   className="card"
                   style={{
-                    borderLeft: '4px solid #20B2AA',
-                    backgroundColor: '#f9fafb'
+                    borderLeft: '4px solid var(--secondary-color)',
+                    backgroundColor: 'var(--surface)'
                   }}
                 >
                   <div style={{ marginBottom: '0.75rem' }}>
                     <span className="badge badge-primary" style={{ marginRight: '0.5rem' }}>
                       {getEmojiForCategory(book.category)}
                     </span>
-                    <span className="badge" style={{ backgroundColor: '#dce9f5', color: '#003d7a' }}>
+                    <span className="badge" style={{ backgroundColor: 'var(--surface)', color: 'var(--primary-color)', border: '1px solid var(--border-color)' }}>
                       {book.category}
                     </span>
                   </div>
-                  <h3 style={{ margin: '0.5rem 0', color: '#003d7a', fontSize: '1.1rem' }}>{book.title}</h3>
+                  <h3 style={{ margin: '0.5rem 0', color: 'var(--primary-color)', fontSize: '1.1rem' }}>{book.title}</h3>
                   <p style={{ margin: '0.25rem 0', color: 'var(--text-secondary)', fontStyle: 'italic', fontSize: '0.95rem' }}>
                     by {book.author}
                   </p>
-                  <p style={{ margin: '1rem 0', lineHeight: '1.6', color: '#555' }}>
+                  <p style={{ margin: '1rem 0', lineHeight: '1.6', color: 'var(--text-primary)' }}>
                     {book.description}
                   </p>
                 </div>
@@ -304,8 +304,8 @@ export const ResourcesView: React.FC = () => {
             </div>
           </section>
 
-          <section className="card mt-6" style={{ backgroundColor: '#e8f2fa', borderLeft: '4px solid #20B2AA' }}>
-            <h3 style={{ color: '#003d7a', marginTop: 0 }}>💡 Getting Started</h3>
+          <section className="card mt-6" style={{ backgroundColor: 'var(--surface)', borderLeft: '4px solid var(--secondary-color)' }}>
+            <h3 style={{ color: 'var(--primary-color)', marginTop: 0 }}>💡 Getting Started</h3>
             <p style={{ marginBottom: '0.5rem' }}>
               <strong>Start with these three:</strong>
             </p>
