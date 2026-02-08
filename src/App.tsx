@@ -8,6 +8,7 @@ import { JournalView } from './components/JournalView';
 import { ResourcesView } from './components/ResourcesView';
 import { FavoritesView } from './components/FavoritesView';
 import { WeeklyReview } from './components/WeeklyReview';
+import { languages } from './data/i18n';
 import prayerBannerUrl from '../public/prayer-banner.png?url';
 import './styles/global.css';
 import './styles/components.css';
@@ -25,7 +26,7 @@ export function App() {
   const [reviewWeek, setReviewWeek] = React.useState<number | null>(null);
   const [installPrompt, setInstallPrompt] = React.useState<any>(null);
   const [isInstalled, setIsInstalled] = React.useState(false);
-  const { user, setUser, darkMode, setDarkMode } = useAppStore();
+  const { user, setUser, darkMode, setDarkMode, language, setLanguage } = useAppStore();
 
   React.useEffect(() => {
     // Apply dark mode class to html element
@@ -218,6 +219,26 @@ export function App() {
                 📱 Install App
               </button>
             )}
+            <select
+              value={language}
+              onChange={(e) => setLanguage(e.target.value as any)}
+              style={{
+                padding: '0.5rem 0.75rem',
+                backgroundColor: 'rgba(255,255,255,0.3)',
+                color: 'white',
+                border: '1px solid rgba(255,255,255,0.5)',
+                borderRadius: '4px',
+                cursor: 'pointer',
+                fontSize: '0.9rem',
+                fontWeight: '500',
+              }}
+            >
+              {languages.map(lang => (
+                <option key={lang.code} value={lang.code} style={{ color: 'black' }}>
+                  {lang.flag} {lang.name}
+                </option>
+              ))}
+            </select>
             <button
               onClick={() => setDarkMode(!darkMode)}
               style={{

@@ -2,6 +2,9 @@ import React from 'react';
 import { useAppStore } from '../store/appStore';
 import { courseContent } from '../data/courseContent';
 import { IntercessorPersonalityQuiz } from './IntercessorPersonalityQuiz';
+import { HighlightManager } from './HighlightManager';
+import { bibleMajorTranslations } from '../data/bibleTranslations';
+import { getTranslations } from '../data/i18n';
 import '../styles/components.css';
 
 interface LessonProps {
@@ -13,10 +16,13 @@ export const LessonView: React.FC<LessonProps> = ({ weekNumber, dayNumber }) => 
   const week = courseContent.find(w => w.weekNumber === weekNumber);
   const lesson = week?.lessons.find(l => l.dayNumber === dayNumber);
   
-  const { userProgress, markLessonComplete, addNote, getNotesForLesson, toggleFavorite, isFavorited } = useAppStore();
+  const { userProgress, markLessonComplete, addNote, getNotesForLesson, toggleFavorite, isFavorited, language, bibleTranslation, setBibleTranslation } = useAppStore();
   const [showNoteForm, setShowNoteForm] = React.useState(false);
   const [noteContent, setNoteContent] = React.useState('');
   const [showQuiz, setShowQuiz] = React.useState(false);
+  const [showHighlights, setShowHighlights] = React.useState(false);
+
+  const t = getTranslations(language);
   
   if (!lesson) return <div>Lesson not found</div>;
 
@@ -90,7 +96,51 @@ export const LessonView: React.FC<LessonProps> = ({ weekNumber, dayNumber }) => 
       </header>
 
       <section className="card mb-6">
-        <h2 className="mb-4">Today's Lesson</h2>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '1rem' }}>
+          <h2 className="mb-0">Today's Lesson</h2>
+          <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <label style={{ fontSize: '0.9rem', fontWeight: 'bold' }}>📖 {t.translation}:</label>
+              <select
+                value={bibleTranslation}
+                onChange={(e) => setBibleTranslation(e.target.value)}
+                style={{
+                  padding: '0.5rem',
+                  borderRadius: '6px',
+                  border: '1px solid var(--border-color)',
+                  backgroundColor: 'var(--surface)',
+                  color: 'var(--text-primary)',
+                  cursor: 'pointer',
+                  fontWeight: '600',
+                }}
+              >
+                {bibleMajorTranslations.map(trans => (
+                  <option key={trans.code} value={trans.code}>
+                    {trans.icon} {trans.code} - {trans.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <button
+              onClick={() => setShowHighlights(!showHighlights)}
+              style={{
+                padding: '0.5rem 1rem',
+                backgroundColor: showHighlights ? 'var(--secondary-color)' : 'var(--primary-color)',
+                color: 'white',
+                border: 'none',
+                borderRadius: '6px',
+                cursor: 'pointer',
+                fontWeight: 'bold',
+                fontSize: '0.9rem',
+                transition: 'all 0.2s ease',
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.opacity = '0.9'}
+              onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
+            >
+              ✨ {t.highlights}
+            </button>
+          </div>
+        </div>
         <div className="lesson-content">
           <p style={{ fontSize: '1.05rem', lineHeight: '1.8', marginBottom: '1.5rem' }}>{lesson.content}</p>
           
@@ -134,6 +184,12 @@ export const LessonView: React.FC<LessonProps> = ({ weekNumber, dayNumber }) => 
           )}
         </div>
       </section>
+
+      {showHighlights && (
+        <section className="card mb-6">
+          <HighlightManager lessonId={lesson.id} content={lesson.content} />
+        </section>
+      )}
 
       {weekNumber === 3 && !showQuiz && (
         <section className="card mb-6" style={{ backgroundColor: '#ede9fe', borderLeft: '4px solid #9333ea' }}>

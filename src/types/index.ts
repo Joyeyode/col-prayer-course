@@ -50,6 +50,15 @@ export interface UserNotes {
   updatedAt: Date;
 }
 
+export interface Highlight {
+  id: string;
+  lessonId: string;
+  text: string;
+  color: string;
+  annotation: string;
+  createdAt: Date;
+}
+
 export interface User {
   id: string;
   name: string;

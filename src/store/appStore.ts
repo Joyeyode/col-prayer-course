@@ -1,11 +1,20 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { UserProgress, Mark, JournalEntry, UserNotes, User } from '../types';
+import { UserProgress, JournalEntry, UserNotes, User, Highlight } from '../types';
+import { Language } from '../data/i18n';
 
 interface AppState {
   // Theme state
   darkMode: boolean;
   setDarkMode: (darkMode: boolean) => void;
+
+  // Language & Localization
+  language: Language;
+  setLanguage: (language: Language) => void;
+
+  // Bible Translation
+  bibleTranslation: string;
+  setBibleTranslation: (translation: string) => void;
 
   // User state
   user: User | null;
@@ -25,6 +34,13 @@ interface AppState {
   favorites: string[];
   toggleFavorite: (lessonId: string) => void;
   isFavorited: (lessonId: string) => boolean;
+
+  // Highlights & Annotations
+  highlights: Highlight[];
+  addHighlight: (highlight: Omit<Highlight, 'id' | 'createdAt'>) => void;
+  updateHighlight: (id: string, annotation: string) => void;
+  deleteHighlight: (id: string) => void;
+  getHighlights: (lessonId: string) => Highlight[];
 
   // Journal entries
   journalEntries: JournalEntry[];
@@ -46,6 +62,12 @@ export const useAppStore = create<AppState>()(
     (set, get) => ({
       darkMode: false,
       setDarkMode: (darkMode: boolean) => set({ darkMode }),
+
+      language: 'en',
+      setLanguage: (language: Language) => set({ language }),
+
+      bibleTranslation: 'KJV',
+      setBibleTranslation: (translation: string) => set({ bibleTranslation: translation }),
 
       user: null,
       setUser: (user: User) => set({ user }),
@@ -153,6 +175,36 @@ export const useAppStore = create<AppState>()(
         return get().favorites.includes(lessonId);
       },
 
+      highlights: [],
+      addHighlight: (highlight: Omit<Highlight, 'id' | 'createdAt'>) => {
+        const newHighlight: Highlight = {
+          ...highlight,
+          id: `highlight-${Date.now()}`,
+          createdAt: new Date(),
+        };
+        set((state) => ({
+          highlights: [...state.highlights, newHighlight],
+        }));
+      },
+
+      updateHighlight: (id: string, annotation: string) => {
+        set((state) => ({
+          highlights: state.highlights.map((h) =>
+            h.id === id ? { ...h, annotation } : h
+          ),
+        }));
+      },
+
+      deleteHighlight: (id: string) => {
+        set((state) => ({
+          highlights: state.highlights.filter((h) => h.id !== id),
+        }));
+      },
+
+      getHighlights: (lessonId: string) => {
+        return get().highlights.filter((h) => h.lessonId === lessonId);
+      },
+
       journalEntries: [],
       addJournalEntry: (entry: Omit<JournalEntry, 'id'>) => {
         const newEntry: JournalEntry = {
@@ -214,7 +266,7 @@ export const useAppStore = create<AppState>()(
       },
     }),
     {
-      name: 'prayer-course-app-store-v2',
+      name: 'prayer-course-app-store-v3',
     }
   )
 );
