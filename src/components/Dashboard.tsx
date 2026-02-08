@@ -3,7 +3,7 @@ import { useAppStore } from '../store/appStore';
 import '../styles/components.css';
 
 export const Dashboard: React.FC = () => {
-  const { userProgress, getCompletionPercentage, journalEntries, user } = useAppStore();
+  const { userProgress, getCompletionPercentage, journalEntries } = useAppStore();
   const completionPercentage = getCompletionPercentage();
   const currentWeek = userProgress?.weekNumber || 1;
 

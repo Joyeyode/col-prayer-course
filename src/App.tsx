@@ -7,9 +7,7 @@ import { LessonView } from './components/LessonView';
 import { JournalView } from './components/JournalView';
 import { ResourcesView } from './components/ResourcesView';
 import { FavoritesView } from './components/FavoritesView';
-import { WeeklyReview } from './components/WeeklyReview';
 import { languages } from './data/i18n';
-import prayerBannerUrl from '../public/prayer-banner.png?url';
 import './styles/global.css';
 import './styles/components.css';
 
@@ -23,7 +21,6 @@ interface LessonSelection {
 export function App() {
   const [currentPage, setCurrentPage] = React.useState<Page>('dashboard');
   const [selectedLesson, setSelectedLesson] = React.useState<LessonSelection | null>(null);
-  const [reviewWeek, setReviewWeek] = React.useState<number | null>(null);
   const [installPrompt, setInstallPrompt] = React.useState<any>(null);
   const [isInstalled, setIsInstalled] = React.useState(false);
   const { user, setUser, darkMode, setDarkMode, language, setLanguage } = useAppStore();
@@ -93,11 +90,6 @@ export function App() {
     setCurrentPage('course');
   };
 
-  const handleViewWeeklyReview = (weekNumber: number) => {
-    setReviewWeek(weekNumber);
-    setCurrentPage('review');
-  };
-
   return (
     <div className="app" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       {/* Prayer Banner */}
@@ -105,19 +97,20 @@ export function App() {
         position: 'relative',
         height: '160px',
         overflow: 'hidden',
-        width: '100%'
+        width: '100%',
+        backgroundColor: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
       }}>
-        <img 
-          src={prayerBannerUrl}
-          alt="Prayer Ministry Banner" 
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            objectPosition: 'center',
-            display: 'block'
-          }}
-        />
+        <h1 style={{
+          color: 'white',
+          fontSize: '2rem',
+          textAlign: 'center',
+          margin: 0
+        }}>
+          Prayer Ministry
+        </h1>
       </div>
 
       {/* Navigation Bar */}
@@ -277,7 +270,6 @@ export function App() {
             </>
           )}
           {currentPage === 'favorites' && <FavoritesView onSelectLesson={handleSelectLesson} />}
-          {currentPage === 'review' && reviewWeek && <WeeklyReview weekNumber={reviewWeek} />}
           {currentPage === 'journal' && <JournalView />}
           {currentPage === 'resources' && <ResourcesView />}
         </div>

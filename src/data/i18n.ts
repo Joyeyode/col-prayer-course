@@ -41,6 +41,13 @@ export interface Translations {
   save: string;
   cancel: string;
 
+  // Course
+  courseWeeks: string;
+  overview: string;
+  week: string;
+  day: string;
+  lesson: string;
+
   // Dashboard
   overallProgress: string;
   lessonsCompleted: string;
@@ -56,9 +63,6 @@ export interface Translations {
   prayerFocus: string;
   nextSteps: string;
   addNote: string;
-  highlights: string;
-  translation: string;
-  selectTranslation: string;
 
   // Favorites
   myFavorites: string;
@@ -85,10 +89,6 @@ export interface Translations {
   light: string;
   dark: string;
   theme: string;
-
-  // Empty states
-  noHighlightsYet: string;
-  startHighlighting: string;
 }
 
 const translationsEN: Translations = {
@@ -117,6 +117,13 @@ const translationsEN: Translations = {
   save: 'Save',
   cancel: 'Cancel',
 
+  // Course
+  courseWeeks: 'Course Weeks',
+  overview: 'Overview',
+  week: 'Week',
+  day: 'Day',
+  lesson: 'Lesson',
+
   // Dashboard
   overallProgress: 'Overall Progress',
   lessonsCompleted: 'Lessons Completed',
@@ -132,9 +139,6 @@ const translationsEN: Translations = {
   prayerFocus: 'Prayer Focus',
   nextSteps: 'Next Steps',
   addNote: 'Add Note',
-  highlights: 'Highlights',
-  translation: 'Translation',
-  selectTranslation: 'Select Bible Translation',
 
   // Favorites
   myFavorites: 'My Favorites',
@@ -161,10 +165,6 @@ const translationsEN: Translations = {
   light: 'Light',
   dark: 'Dark',
   theme: 'Theme',
-
-  // Empty states
-  noHighlightsYet: 'No highlights yet',
-  startHighlighting: 'Select text and click to highlight important passages',
 };
 
 const translationsES: Translations = {
@@ -191,6 +191,14 @@ const translationsES: Translations = {
   save: 'Guardar',
   cancel: 'Cancelar',
 
+  // Course
+  courseWeeks: 'Semanas del Curso',
+  overview: 'Descripción General',
+  week: 'Semana',
+  day: 'Día',
+  lesson: 'Lección',
+
+  // Dashboard
   overallProgress: 'Progreso General',
   lessonsCompleted: 'Lecciones Completadas',
   currentStreak: 'Racha Actual',
@@ -204,9 +212,6 @@ const translationsES: Translations = {
   prayerFocus: 'Enfoque de Oración',
   nextSteps: 'Próximos Pasos',
   addNote: 'Agregar Nota',
-  highlights: 'Destacados',
-  translation: 'Traducción',
-  selectTranslation: 'Seleccionar Traducción Bíblica',
 
   myFavorites: 'Mis Favoritos',
   noFavoritesYet: 'Sin favoritos aún',
@@ -229,9 +234,6 @@ const translationsES: Translations = {
   light: 'Claro',
   dark: 'Oscuro',
   theme: 'Tema',
-
-  noHighlightsYet: 'Sin destacados aún',
-  startHighlighting: 'Selecciona texto y haz clic para destacar pasajes importantes',
 };
 
 const translationsFR: Translations = {
@@ -258,6 +260,14 @@ const translationsFR: Translations = {
   save: 'Enregistrer',
   cancel: 'Annuler',
 
+  // Course
+  courseWeeks: 'Semaines du Cours',
+  overview: 'Aperçu',
+  week: 'Semaine',
+  day: 'Jour',
+  lesson: 'Leçon',
+
+  // Dashboard
   overallProgress: 'Progrès Global',
   lessonsCompleted: 'Leçons Complétées',
   currentStreak: 'Série Actuelle',
@@ -271,9 +281,6 @@ const translationsFR: Translations = {
   prayerFocus: 'Focus de Prière',
   nextSteps: 'Prochaines Étapes',
   addNote: 'Ajouter une Note',
-  highlights: 'Surlignages',
-  translation: 'Traduction',
-  selectTranslation: 'Sélectionner la Traduction Biblique',
 
   myFavorites: 'Mes Favoris',
   noFavoritesYet: 'Pas de favoris pour le moment',
@@ -296,9 +303,6 @@ const translationsFR: Translations = {
   light: 'Clair',
   dark: 'Sombre',
   theme: 'Thème',
-
-  noHighlightsYet: 'Pas de surlignages pour le moment',
-  startHighlighting: 'Sélectionnez du texte et cliquez pour surligner les passages importants',
 };
 
 const translationsPT: Translations = {
@@ -325,6 +329,14 @@ const translationsPT: Translations = {
   save: 'Salvar',
   cancel: 'Cancelar',
 
+  // Course
+  courseWeeks: 'Semanas do Curso',
+  overview: 'Visão Geral',
+  week: 'Semana',
+  day: 'Dia',
+  lesson: 'Lição',
+
+  // Dashboard
   overallProgress: 'Progresso Geral',
   lessonsCompleted: 'Aulas Concluídas',
   currentStreak: 'Sequência Atual',
@@ -338,9 +350,6 @@ const translationsPT: Translations = {
   prayerFocus: 'Foco de Oração',
   nextSteps: 'Próximos Passos',
   addNote: 'Adicionar Nota',
-  highlights: 'Destaques',
-  translation: 'Tradução',
-  selectTranslation: 'Selecionar Tradução Bíblica',
 
   myFavorites: 'Meus Favoritos',
   noFavoritesYet: 'Sem favoritos ainda',
@@ -363,9 +372,6 @@ const translationsPT: Translations = {
   light: 'Claro',
   dark: 'Escuro',
   theme: 'Tema',
-
-  noHighlightsYet: 'Sem destaques ainda',
-  startHighlighting: 'Selecione o texto e clique para destacar passagens importantes',
 };
 
 const translationMap: Record<Language, Translations> = {

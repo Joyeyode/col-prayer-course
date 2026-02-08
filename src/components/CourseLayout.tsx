@@ -1,6 +1,7 @@
 import React from 'react';
 import { courseContent, courseIntroduction } from '../data/courseContent';
 import { useAppStore } from '../store/appStore';
+import { getTranslations } from '../data/i18n';
 import '../styles/components.css';
 
 interface CourseLayoutProps {
@@ -8,8 +9,9 @@ interface CourseLayoutProps {
 }
 
 export const CourseLayout: React.FC<CourseLayoutProps> = ({ onSelectLesson }) => {
-  const { userProgress } = useAppStore();
+  const { userProgress, language } = useAppStore();
   const [selectedWeek, setSelectedWeek] = React.useState(1);
+  const t = getTranslations(language);
 
   const week = selectedWeek === 0 ? null : courseContent.find(w => w.weekNumber === selectedWeek);
   const completedLessons = userProgress?.completedLessons || [];
@@ -27,7 +29,7 @@ export const CourseLayout: React.FC<CourseLayoutProps> = ({ onSelectLesson }) =>
     <div className="course-layout" style={{ display: 'grid', gridTemplateColumns: '250px 1fr', gap: '2rem' }}>
       {/* Sidebar - Week Navigation */}
       <aside className="card" style={{ height: 'fit-content', position: 'sticky', top: '1rem' }}>
-        <h3 className="mb-4">Course Weeks</h3>
+        <h3 className="mb-4">{t.courseWeeks}</h3>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
           <button
             className={`nav-link ${selectedWeek === 0 ? 'active' : ''}`}
@@ -41,7 +43,7 @@ export const CourseLayout: React.FC<CourseLayoutProps> = ({ onSelectLesson }) =>
               color: selectedWeek === 0 ? 'white' : 'var(--text-primary)',
             }}
           >
-            <span>📖 Overview</span>
+            <span>📖 {t.overview}</span>
           </button>
           {courseContent.map((w) => {
             const completion = calculateWeekCompletion(w.weekNumber);
@@ -60,7 +62,7 @@ export const CourseLayout: React.FC<CourseLayoutProps> = ({ onSelectLesson }) =>
                   color: isSelected ? 'white' : 'var(--text-primary)',
                 }}
               >
-                <span>Week {w.weekNumber}</span>
+                <span>{t.week} {w.weekNumber}</span>
                 <span style={{ fontSize: '0.75rem', opacity: 0.8 }}>{completion}%</span>
               </button>
             );
@@ -141,7 +143,7 @@ export const CourseLayout: React.FC<CourseLayoutProps> = ({ onSelectLesson }) =>
                     }}
                   >
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '0.5rem' }}>
-                      <span className="badge badge-primary">Day {lesson.dayNumber}</span>
+                      <span className="badge badge-primary">{t.day} {lesson.dayNumber}</span>
                       {isCompleted && <span className="badge badge-success">✓</span>}
                     </div>
                     <h4 style={{ color: 'var(--text-primary)' }}>{lesson.title}</h4>

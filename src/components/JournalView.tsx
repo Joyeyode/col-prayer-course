@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAppStore } from '../store/appStore';
+import { JournalEntry } from '../types/index';
 import '../styles/components.css';
 
 export const JournalView: React.FC = () => {
@@ -50,7 +51,7 @@ export const JournalView: React.FC = () => {
     setShowForm(false);
   };
 
-  const handleEdit = (entry) => {
+  const handleEdit = (entry: JournalEntry) => {
     setFormData({
       weekNumber: entry.weekNumber,
       lessonId: entry.lessonId,
