@@ -91,7 +91,7 @@ export const ProgressDashboard: React.FC = () => {
             fontWeight: 'bold',
             color: 'var(--secondary-color)',
             margin: '0',
-          }}>
+          }} className="streak-info">
             {currentStreak}
           </p>
           <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', marginTop: '0.5rem' }}>
@@ -133,7 +133,7 @@ export const ProgressDashboard: React.FC = () => {
           <h3 style={{ fontSize: '1.1rem', fontWeight: 'bold', color: 'var(--text-primary)', marginBottom: '1rem' }}>
             📅 {t.weeklyProgress}
           </h3>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '1rem' }}>
             {courseContent.map((week) => {
               const weekCompletion = getWeeklyCompletion(week.weekNumber);
               return (

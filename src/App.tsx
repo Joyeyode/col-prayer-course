@@ -104,7 +104,7 @@ export function App() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center'
-      }}>
+      }} className="prayer-banner">
         <h1 style={{
           color: 'white',
           fontSize: '2rem',
@@ -124,7 +124,7 @@ export function App() {
         top: 0,
         zIndex: 100
       }}>
-        <div className="container flex justify-between items-center">
+        <div className="container" style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
             <img 
               src="/COL Logo.png" 
@@ -133,7 +133,7 @@ export function App() {
             />
             <h1 style={{ fontSize: '1.5rem', margin: 0, fontWeight: 'bold' }}>COL Prayer Course</h1>
           </div>
-          <nav style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+          <nav style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
             <button
               onClick={() => setCurrentPage('dashboard')}
               className={`nav-link ${currentPage === 'dashboard' ? 'active' : ''}`}
@@ -238,7 +238,7 @@ export function App() {
       </header>
 
       {/* Main Content */}
-      <main style={{ flex: 1, padding: '2rem 0' }}>
+      <main style={{ flex: 1, padding: '1.5rem 0' }}>
         <div className="container">
           {currentPage === 'dashboard' && <Dashboard />}
           {currentPage === 'progress' && <ProgressDashboard />}

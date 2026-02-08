@@ -20,7 +20,7 @@ export const Dashboard: React.FC = () => {
         <p className="text-secondary mt-2">{t.continueJourney}</p>
       </section>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem', marginBottom: '1.5rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', marginBottom: '1.5rem' }}>
         <div className="card">
           <div className="text-sm text-secondary mb-2">{t.currentWeek}</div>
           <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--primary-color)' }}>

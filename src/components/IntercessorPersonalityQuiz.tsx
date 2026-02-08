@@ -136,7 +136,7 @@ export const IntercessorPersonalityQuiz: React.FC = () => {
               </p>
               <p style={{ marginBottom: '1.5rem', lineHeight: 1.6 }}>{primaryProfile.description}</p>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '1.5rem' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginBottom: '1.5rem' }} className="quiz-results-grid">
                 <div>
                   <h4 style={{ marginTop: 0, color: 'var(--primary-color)' }}>✅ Your Strengths</h4>
                   <ul style={{ marginBottom: 0 }}>

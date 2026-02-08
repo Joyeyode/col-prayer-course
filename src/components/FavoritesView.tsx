@@ -41,7 +41,7 @@ export const FavoritesView: React.FC<FavoritesViewProps> = ({ onSelectLesson }) 
           ⭐ My Favorite Lessons ({favoritesList.length})
         </h2>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '1.5rem' }}>
           {favoritesList.map((lesson) => (
             <div
               key={lesson.id}
