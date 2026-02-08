@@ -4,11 +4,12 @@ import { Dashboard } from './components/Dashboard';
 import { CourseLayout } from './components/CourseLayout';
 import { LessonView } from './components/LessonView';
 import { JournalView } from './components/JournalView';
+import { ResourcesView } from './components/ResourcesView';
 import prayerBannerUrl from '../public/prayer-banner.png?url';
 import './styles/global.css';
 import './styles/components.css';
 
-type Page = 'dashboard' | 'course' | 'lesson' | 'journal';
+type Page = 'dashboard' | 'course' | 'lesson' | 'journal' | 'resources';
 
 interface LessonSelection {
   weekNumber: number;
@@ -149,6 +150,16 @@ export function App() {
             >
               Journal
             </button>
+            <button
+              onClick={() => setCurrentPage('resources')}
+              className={`nav-link ${currentPage === 'resources' ? 'active' : ''}`}
+              style={{
+                color: currentPage === 'resources' ? 'white' : 'rgba(255,255,255,0.7)',
+                backgroundColor: currentPage === 'resources' ? 'rgba(255,255,255,0.2)' : 'transparent',
+              }}
+            >
+              Resources
+            </button>
             {installPrompt && !isInstalled && (
               <button
                 onClick={handleInstallClick}
@@ -187,6 +198,7 @@ export function App() {
             </>
           )}
           {currentPage === 'journal' && <JournalView />}
+          {currentPage === 'resources' && <ResourcesView />}
         </div>
       </main>
 
