@@ -197,6 +197,11 @@
 
 /* Mobile devices: 320px - 480px */
 @media (max-width: 480px) {
+  .prayer-banner {
+    display: flex !important;
+    height: 120px !important;
+  }
+  
   .prayer-banner h1 {
     font-size: 1.25rem;
   }
@@ -287,6 +292,11 @@
 
 /* Tablets: 481px - 768px */
 @media (min-width: 481px) and (max-width: 768px) {
+  .prayer-banner {
+    display: flex !important;
+    height: 140px !important;
+  }
+  
   .prayer-banner h1 {
     font-size: 1.5rem;
   }
@@ -312,7 +322,8 @@
 /* Desktop: 769px+ */
 @media (min-width: 769px) {
   .prayer-banner {
-    height: 160px;
+    display: flex !important;
+    height: 160px !important;
   }
   
   .prayer-banner h1 {
