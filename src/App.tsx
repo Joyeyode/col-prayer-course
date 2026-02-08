@@ -119,7 +119,7 @@ export function App() {
         top: 0,
         zIndex: 100
       }}>
-        <div className="container" style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
+        <div className="container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
             <img 
               src="/COL Logo.png" 
@@ -128,7 +128,7 @@ export function App() {
             />
             <h1 style={{ fontSize: '1.5rem', margin: 0, fontWeight: 'bold' }}>COL Prayer Course</h1>
           </div>
-          <nav style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap' }}>
+          <nav style={{ display: 'flex', gap: '1rem', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
             <button
               onClick={() => setCurrentPage('dashboard')}
               className={`nav-link ${currentPage === 'dashboard' ? 'active' : ''}`}
