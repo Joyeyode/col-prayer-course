@@ -10,7 +10,7 @@ export const AdminLogin: React.FC<AdminLoginProps> = ({ onLoginSuccess }) => {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const ADMIN_PASSWORD = 'prayer2026'; // Change this to your desired password
+  const ADMIN_PASSWORD = 'M@keMeaWarri0r26!'; // Change this to your desired password
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
