@@ -11,7 +11,12 @@ import { UserSettingsView } from './components/UserSettingsView';
 import './styles/global.css';
 import './styles/components.css';
 
-type Page = 'dashboard' | 'progress' | 'course' | 'lesson' | 'journal' | 'resources' | 'favorites' | 'review' | 'settings';
+// Lazy load AdminDashboard to prevent Firebase blocking initial load
+const AdminDashboard = React.lazy(() => 
+  import('./components/AdminDashboard').then(m => ({ default: m.AdminDashboard }))
+);
+
+type Page = 'dashboard' | 'progress' | 'course' | 'lesson' | 'journal' | 'resources' | 'favorites' | 'review' | 'settings' | 'admin';
 
 interface LessonSelection {
   weekNumber: number;
@@ -205,6 +210,17 @@ export function App() {
             >
               ⚙️ Settings
             </button>
+            <button
+              onClick={() => setCurrentPage('admin')}
+              className={`nav-link ${currentPage === 'admin' ? 'active' : ''}`}
+              style={{
+                color: currentPage === 'admin' ? 'white' : 'rgba(255,255,255,0.7)',
+                backgroundColor: currentPage === 'admin' ? 'rgba(255,255,255,0.2)' : 'transparent',
+              }}
+              title="Admin Dashboard"
+            >
+              👥 Admin
+            </button>
             {installPrompt && !isInstalled && (
               <button
                 onClick={handleInstallClick}
@@ -266,6 +282,11 @@ export function App() {
           {currentPage === 'journal' && <JournalView />}
           {currentPage === 'resources' && <ResourcesView />}
           {currentPage === 'settings' && <UserSettingsView />}
+          {currentPage === 'admin' && (
+            <React.Suspense fallback={<div style={{ textAlign: 'center', padding: '2rem' }}>📊 Loading Admin Dashboard...</div>}>
+              <AdminDashboard />
+            </React.Suspense>
+          )}
         </div>
       </main>
 

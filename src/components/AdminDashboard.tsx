@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { getAllUsers, getActiveUsers } from '../services/firebaseService';
-import { getTranslations } from '../data/i18n';
 import '../styles/components.css';
 
 interface UserData {
@@ -17,18 +15,24 @@ export const AdminDashboard: React.FC = () => {
   const [activeUsers, setActiveUsers] = useState<UserData[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<'all' | 'active'>('all');
-  const t = getTranslations('en');
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const loadUsers = async () => {
       setLoading(true);
+      setError(null);
       try {
+        // Dynamically import Firebase service to avoid blocking app on load
+        const { getAllUsers, getActiveUsers } = await import('../services/firebaseService');
         const allUsers = await getAllUsers();
         const recentlyActive = await getActiveUsers(24);
         setUsers(allUsers);
         setActiveUsers(recentlyActive);
       } catch (error) {
         console.error('Error loading users:', error);
+        setError(`Failed to load users: ${error instanceof Error ? error.message : 'Unknown error'}`);
+        setUsers([]);
+        setActiveUsers([]);
       } finally {
         setLoading(false);
       }
@@ -56,6 +60,13 @@ export const AdminDashboard: React.FC = () => {
         <h1 style={{ marginTop: 0, marginBottom: '0.5rem' }}>👥 Admin Dashboard</h1>
         <p className="text-secondary">Track user engagement and course participation</p>
       </section>
+
+      {/* Error Message */}
+      {error && (
+        <section className="card mb-6" style={{ backgroundColor: '#fee', borderLeft: '4px solid #c00' }}>
+          <p style={{ margin: 0, color: '#c00' }}>⚠️ {error}</p>
+        </section>
+      )}
 
       {/* Statistics */}
       <section className="card mb-6">
